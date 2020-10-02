@@ -1,0 +1,19 @@
+{
+    "name": "ramphor/embeddable-testimonials",
+    "description": "Create a testimonials for your site as WordPress plugin or embed to other plugins, themes",
+    "type": "project",
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Ramphor Premium",
+            "email": "puleeno@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ramphor\\Testimonials\\": "src/"
+        }
+    }
+}
