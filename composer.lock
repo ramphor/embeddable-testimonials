@@ -1,0 +1,53 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "b818dc104d304f12228382315d0c4b7a",
+    "packages": [
+        {
+            "name": "ramphor/embrati",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramphor/embrati.git",
+                "reference": "a1a4553f990bf5f274169aac372ec79b829b660a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramphor/embrati/zipball/a1a4553f990bf5f274169aac372ec79b829b660a",
+                "reference": "a1a4553f990bf5f274169aac372ec79b829b660a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Embrati\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Ramphor Premium",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Embed rating",
+            "time": "2020-10-02T18:25:32+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "ramphor/embrati": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

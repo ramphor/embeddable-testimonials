@@ -10,7 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "ramphor/embrati": "dev-master"
+    },
     "autoload": {
         "psr-4": {
             "Ramphor\\Testimonials\\": "src/"
