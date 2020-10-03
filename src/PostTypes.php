@@ -12,11 +12,10 @@ class PostTypes
 
     public function __construct()
     {
-        $this->embrati = Embrati::getInstance();
-
         add_action('init', array($this, 'registerPostTypes'), 15);
         add_action('init', array($this, 'registerTaxonomies'), 15);
         add_action('add_meta_boxes', array($this, 'registerRatingMetabox'));
+        add_action('add_meta_boxes', array($this, 'registerMetabox'));
     }
 
     public function registerPostTypes()
@@ -57,6 +56,7 @@ class PostTypes
 
     public function registerRatingMetabox()
     {
+        $this->embrati = Embrati::getInstance();
         $this->embrati->registerAdminScripts();
         add_meta_box(
             'testimonial_rating',
@@ -73,5 +73,35 @@ class PostTypes
             'max' => 5,
             'rating' => 4,
         ));
+    }
+
+    public function registerMetabox()
+    {
+        add_meta_box(
+            'testimonial_metadata',
+            __('Testimonial Informations', 'ramphor_testimonial'),
+            array($this, 'renderMetadataBox'),
+            static::RATING_POST_TYPE,
+            'normal',
+            'high'
+        );
+    }
+
+    public function renderMetadataBox()
+    {
+        ?>
+        <p>
+            <label for=""><?php _e('Testimony Name', 'ramphor_testimonial'); ?></label>
+            <input type="text" class="widefat" />
+        </p>
+        <p>
+            <label for=""><?php _e('Testimony\'s Company', 'ramphor_testimonial'); ?></label>
+            <input type="text" class="widefat">
+        </p>
+        <p>
+            <label for=""><?php _e('Position', 'ramphor_testimonial'); ?></label>
+            <input type="text" class="widefat">
+        </p>
+        <?php
     }
 }
