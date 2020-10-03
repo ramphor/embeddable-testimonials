@@ -5,7 +5,7 @@ use Embrati\Embrati;
 
 class PostTypes
 {
-    const RATING_POST_TYPE = 'testimonial';
+    const RATING_POST_TYPE = 'testimonials';
     const RATING_CATEGORY_TAXONOMY = 'testimonial_cat';
 
     protected $embrati;
@@ -21,8 +21,8 @@ class PostTypes
     public function registerPostTypes()
     {
         $lables = array(
-            'name' => __('Testimonials', 'ramphor_testimonial'),
-            'plural_name' => __('Testimonial', 'ramphor_testimonial'),
+            'name' => __('Testimonials', 'ramphor_testimonials'),
+            'plural_name' => __('Testimonial', 'ramphor_testimonials'),
         );
         register_post_type(
             static::RATING_POST_TYPE,
@@ -30,7 +30,7 @@ class PostTypes
                 'public' => false,
                 'labels' => $lables,
                 'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-                'menu_icon' => 'dashicons-testimonial',
+                'menu_icon' => 'dashicons-testimonials',
                 'show_ui' => true,
                 'show_in_menu' => true,
             ))
@@ -40,8 +40,8 @@ class PostTypes
     public function registerTaxonomies()
     {
         $labels = array(
-            'name' => __('Categories', 'ramphor_testimonial'),
-            'plural_name' => __('Category', 'ramphor_testimonial'),
+            'name' => __('Categories', 'ramphor_testimonials'),
+            'plural_name' => __('Category', 'ramphor_testimonials'),
         );
         register_taxonomy(
             static::RATING_CATEGORY_TAXONOMY,
@@ -62,7 +62,7 @@ class PostTypes
         $this->embrati->registerAdminScripts();
         add_meta_box(
             'testimonial_rating',
-            __('Rating', 'ramphor_testimonial'),
+            __('Rating', 'ramphor_testimonials'),
             array($this, 'renderRating'),
             static::RATING_POST_TYPE,
             'side'
@@ -81,7 +81,7 @@ class PostTypes
     {
         add_meta_box(
             'testimonial_metadata',
-            __('Testimonial Informations', 'ramphor_testimonial'),
+            __('Testimonial Informations', 'ramphor_testimonials'),
             array($this, 'renderMetadataBox'),
             static::RATING_POST_TYPE,
             'normal',
@@ -93,15 +93,15 @@ class PostTypes
     {
         ?>
         <p>
-            <label for=""><?php _e('Testimony Name', 'ramphor_testimonial'); ?></label>
+            <label for=""><?php _e('Testimony Name', 'ramphor_testimonials'); ?></label>
             <input type="text" class="widefat" />
         </p>
         <p>
-            <label for=""><?php _e('Testimony\'s Company', 'ramphor_testimonial'); ?></label>
+            <label for=""><?php _e('Testimony\'s Company', 'ramphor_testimonials'); ?></label>
             <input type="text" class="widefat">
         </p>
         <p>
-            <label for=""><?php _e('Position', 'ramphor_testimonial'); ?></label>
+            <label for=""><?php _e('Position', 'ramphor_testimonials'); ?></label>
             <input type="text" class="widefat">
         </p>
         <?php
