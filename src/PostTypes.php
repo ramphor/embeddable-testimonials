@@ -27,11 +27,12 @@ class PostTypes
         register_post_type(
             static::RATING_POST_TYPE,
             apply_filters('ramphor_testimonial_post_type_args', array(
-                'public' => true,
+                'public' => false,
                 'labels' => $lables,
-                'menu_icon' => 'dashicons-testimonial',
                 'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-                '_builtin' => true,
+                'menu_icon' => 'dashicons-testimonial',
+                'show_ui' => true,
+                'show_in_menu' => true,
             ))
         );
     }
@@ -46,10 +47,11 @@ class PostTypes
             static::RATING_CATEGORY_TAXONOMY,
             static::RATING_POST_TYPE,
             apply_filters('ramphor_testimonial_category_taxonomy_args', array(
-                'public' => true,
+                'public' => false,
                 'labels' => $labels,
                 'hierarchical' => true,
-                '_builtin' => true,
+                'show_ui' => true,
+                'show_in_menu' => true,
             ))
         );
     }
