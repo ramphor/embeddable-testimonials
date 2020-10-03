@@ -18,10 +18,24 @@ final class Testimonials
     private function __construct()
     {
         $this->initFeatures();
+        $this->integrateWithOtherPlugins();
     }
 
     protected function initFeatures()
     {
         $this->postType = new PostTypes();
+    }
+
+    public function integrateWithOtherPlugins()
+    {
+        $activePlugins = get_option('active_plugins');
+        if (($index = array_search('elementor/elementor.php', $activePlugins)) !== false) {
+            $this->integrationWithElementor();
+        }
+    }
+
+    protected function integrationWithElementor()
+    {
+        add
     }
 }
