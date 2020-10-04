@@ -5,7 +5,7 @@ use Embrati\Embrati;
 
 class PostTypes
 {
-    const RATING_POST_TYPE = 'testimonials';
+    const RATING_POST_TYPE = 'testimonial';
     const RATING_CATEGORY_TAXONOMY = 'testimonial_cat';
 
     protected $embrati;
