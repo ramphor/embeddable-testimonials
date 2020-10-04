@@ -30,7 +30,7 @@ class PostTypes
                 'public' => false,
                 'labels' => $lables,
                 'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-                'menu_icon' => 'dashicons-testimonials',
+                'menu_icon' => 'dashicons-testimonial',
                 'show_ui' => true,
                 'show_in_menu' => true,
             ))
