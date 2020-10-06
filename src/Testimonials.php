@@ -40,7 +40,8 @@ final class Testimonials
     {
         add_action('elementor/widgets/widgets_registered', array($this, 'registerElementorWidgets'));
     }
-    public function registerElementorWidgets($widget_manager) {
+    public function registerElementorWidgets($widget_manager)
+    {
         $widget_manager->register_widget_type(new TestimonialsWidget());
     }
 }

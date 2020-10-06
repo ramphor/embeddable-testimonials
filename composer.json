@@ -11,7 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ramphor/embrati": "dev-master"
+        "ramphor/embrati": "dev-master",
+        "jankx/template": "dev-master"
     },
     "autoload": {
         "psr-4": {

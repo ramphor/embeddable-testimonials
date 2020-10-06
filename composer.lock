@@ -4,8 +4,108 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b818dc104d304f12228382315d0c4b7a",
+    "content-hash": "7d9d28720519ed3ef8954f460ec228f7",
     "packages": [
+        {
+            "name": "jankx/helpers",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/helpers.git",
+                "reference": "32b7e28e88554afe36fde5de1ce7789687ba0414"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/32b7e28e88554afe36fde5de1ce7789687ba0414",
+                "reference": "32b7e28e88554afe36fde5de1ce7789687ba0414",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The helpers for Jankx Framework",
+            "time": "2020-10-05T03:05:58+00:00"
+        },
+        {
+            "name": "jankx/template",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/template.git",
+                "reference": "3dc6095367b7106bdff033ea696c79b4dadeb340"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/template/zipball/3dc6095367b7106bdff033ea696c79b4dadeb340",
+                "reference": "3dc6095367b7106bdff033ea696c79b4dadeb340",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/template-engine": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Template\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Jankx Template is used to load the template support override, caching.",
+            "time": "2020-10-05T21:25:09+00:00"
+        },
+        {
+            "name": "jankx/template-engine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/template-engine.git",
+                "reference": "33ac45314098b554c8acdab4cb5d74aa1a752210"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/template-engine/zipball/33ac45314098b554c8acdab4cb5d74aa1a752210",
+                "reference": "33ac45314098b554c8acdab4cb5d74aa1a752210",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/helpers": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Template\\Engine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The template engine for Jankx Framework",
+            "time": "2020-09-30T08:43:06+00:00"
+        },
         {
             "name": "ramphor/embrati",
             "version": "dev-master",
@@ -44,7 +144,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ramphor/embrati": 20
+        "ramphor/embrati": 20,
+        "jankx/template": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
