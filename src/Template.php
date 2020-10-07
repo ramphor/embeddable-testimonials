@@ -24,7 +24,7 @@ class Template
     public static function render()
     {
         return call_user_func_array(
-            array(static::$templateLoader, 'render'),
+            array(static::getLoader(), 'render'),
             func_get_args()
         );
     }

@@ -26,6 +26,7 @@ final class Testimonials
     protected function initFeatures()
     {
         $this->postType = new PostTypes();
+        add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 40);
     }
 
     public function integrateWithOtherPlugins()
@@ -40,8 +41,37 @@ final class Testimonials
     {
         add_action('elementor/widgets/widgets_registered', array($this, 'registerElementorWidgets'));
     }
+
     public function registerElementorWidgets($widget_manager)
     {
         $widget_manager->register_widget_type(new TestimonialsWidget());
+    }
+
+    protected function asset_url($path = '')
+    {
+        $assetDirUrl = str_replace(ABSPATH, site_url('/'), dirname(EMBEDDABLE_TESTIMONIALS_PLUGIN_FILE));
+        return sprintf(
+            '%s/assets/%s',
+            $assetDirUrl,
+            $path
+        );
+    }
+
+    public function registerScripts()
+    {
+        global $wp_scripts, $wp_styles;
+        if (isset($wp_scripts->registered['glide'])) {
+            wp_register_script('glide', $this->asset_url('vendor/glidejs/glide.js'), array(), '3.4.1', true);
+        }
+        if (isset($wp_styles->registered['glide'])) {
+            wp_register_style('glide', $this->asset_url('vendor/glidejs/css/glide.core.css'), array(), '3.4.1');
+        }
+        if (isset($wp_styles->registered['glide-theme'])) {
+            wp_register_style('glide', $this->asset_url('vendor/glidejs/css/glide.theme.css'), array('glide'), '3.4.1');
+        }
+
+        // Call scripts
+        wp_enqueue_script('glide');
+        wp_enqueue_style('glide-theme');
     }
 }
