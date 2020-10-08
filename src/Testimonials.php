@@ -1,6 +1,7 @@
 <?php
 namespace Ramphor\Testimonials;
 
+use Embrati\Embrati;
 use Ramphor\Testimonials\Elementor\TestimonialsWidget;
 
 final class Testimonials
@@ -8,6 +9,7 @@ final class Testimonials
     protected static $instance;
 
     public $postType;
+    public $embrati;
 
     public static function getInstance()
     {
@@ -26,6 +28,9 @@ final class Testimonials
     protected function initFeatures()
     {
         $this->postType = new PostTypes();
+        $this->embrati  = Embrati::getInstance();
+
+        add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));
         add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 40);
     }
 

@@ -4,7 +4,7 @@
             <?php the_post_thumbnail(); ?>
         </div>
     <?php endif; ?>
-    <div class="rating"></div>
+    <div class="rating"><?php echo $e->display('testimonials-rating', array()); ?></div>
     <div class="desc"><?php the_content(); ?></div>
     <div class="position">
         <span class="testimony"><?php the_title(); ?></span>

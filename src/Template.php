@@ -2,6 +2,7 @@
 namespace Ramphor\Testimonials;
 
 use Jankx\Template\Template as TemlateLib;
+use Ramphor\Testimonials\Testimonials;
 
 class Template
 {
@@ -23,9 +24,16 @@ class Template
 
     public static function render()
     {
+        $args = func_get_args();
+        if (!isset($args[1])) {
+            $args[1] = array();
+        }
+        $args[1]['t'] = __CLASS__;
+        $args[1]['e'] = Testimonials::getInstance()->embrati;
+
         return call_user_func_array(
             array(static::getLoader(), 'render'),
-            func_get_args()
+            $args
         );
     }
 }
