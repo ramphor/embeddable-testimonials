@@ -148,7 +148,15 @@ class TestimonialsRenderer
             new Glide('#<?php echo $this->carouselId; ?>', {
                 type: 'carousel',
                 startAt: 0,
-                perView: 3
+                perView: 3,
+                breakpoints: {
+                    800: {
+                        perView: 2
+                    },
+                    600: {
+                        perView: 1
+                    }
+                }
             }).mount();
         </script>
         <?php
