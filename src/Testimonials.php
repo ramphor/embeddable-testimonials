@@ -25,8 +25,14 @@ final class Testimonials
 
     private function __construct()
     {
+        $this->includes();
         $this->initFeatures();
         $this->integrateWithOtherPlugins();
+    }
+
+    protected function includes()
+    {
+        require_once dirname(__FILE__) . '/testimonial-functions.php';
     }
 
     protected function initFeatures()
