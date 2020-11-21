@@ -10,19 +10,20 @@ function ramphor_set_star_rating(rating, done = ramphor_testimonial_end_update_r
         return;
     }
     ramphor_testimonial_start_update_rate();
+    tmpRating = testimonial_rating.getRating();
+    testimonial_rating.setRating(rating);
 
     var xhr = new XMLHttpRequest();
 
     xhr.onload = function() {
         if (xhr.status >= 200 && xhr.status < 300) {
             response = JSON.parse(xhr.response);
-            if (response.success) {
-                if (response.data > 0) {
-                    testimonial_rating.setRating(response.data);
-                }
+            if (!response.success) {
+                testimonial_rating.setRating(tmpRating);
             }
+        } else {
+            testimonial_rating.setRating(tmpRating);
         }
-
         if (typeof done === 'function') {
             done();
         }
