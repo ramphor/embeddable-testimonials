@@ -77,6 +77,8 @@ class PostTypes
         $this->embrati->create('testimonial-rating', array(
             'max' => 5,
             'rating' => $rating,
+            'step' => 0.5,
+            'starSize' => 32
         ));
     }
 
