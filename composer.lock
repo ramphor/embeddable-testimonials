@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/helpers.git",
-                "reference": "bb071c0cd60743f90094ec7a0d94b177cf9e00c8"
+                "reference": "3ca5aa983562c1a24a46c9b4d9c65477a045af7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/helpers/zipball/bb071c0cd60743f90094ec7a0d94b177cf9e00c8",
-                "reference": "bb071c0cd60743f90094ec7a0d94b177cf9e00c8",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/3ca5aa983562c1a24a46c9b4d9c65477a045af7b",
+                "reference": "3ca5aa983562c1a24a46c9b4d9c65477a045af7b",
                 "shasum": ""
             },
             "type": "library",
@@ -32,7 +32,7 @@
                 }
             ],
             "description": "The helpers for Jankx Framework",
-            "time": "2020-10-19T04:14:04+00:00"
+            "time": "2020-10-20T19:53:48+00:00"
         },
         {
             "name": "jankx/template",
@@ -40,12 +40,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "3b29dd623939f97919364cc8ba9329c53d409088"
+                "reference": "197f51c8893c8340d1e9e20aaa44fe7d2f626c88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/3b29dd623939f97919364cc8ba9329c53d409088",
-                "reference": "3b29dd623939f97919364cc8ba9329c53d409088",
+                "url": "https://api.github.com/repos/jankx/template/zipball/197f51c8893c8340d1e9e20aaa44fe7d2f626c88",
+                "reference": "197f51c8893c8340d1e9e20aaa44fe7d2f626c88",
                 "shasum": ""
             },
             "require": {
@@ -68,7 +68,7 @@
                 }
             ],
             "description": "Jankx Template is used to load the template support override, caching.",
-            "time": "2020-10-18T08:36:49+00:00"
+            "time": "2020-11-06T02:09:02+00:00"
         },
         {
             "name": "jankx/template-engine",
@@ -112,12 +112,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/embrati.git",
-                "reference": "cd84d2164dcc53927ea7ed5361794ba1e2eea31e"
+                "reference": "6300ecd7f4b793223e8069d9628b6ef7487d5557"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramphor/embrati/zipball/cd84d2164dcc53927ea7ed5361794ba1e2eea31e",
-                "reference": "cd84d2164dcc53927ea7ed5361794ba1e2eea31e",
+                "url": "https://api.github.com/repos/ramphor/embrati/zipball/6300ecd7f4b793223e8069d9628b6ef7487d5557",
+                "reference": "6300ecd7f4b793223e8069d9628b6ef7487d5557",
                 "shasum": ""
             },
             "type": "library",
@@ -137,7 +137,7 @@
                 }
             ],
             "description": "Embed rating",
-            "time": "2020-10-11T10:43:59+00:00"
+            "time": "2020-11-21T12:42:56+00:00"
         }
     ],
     "packages-dev": [],
