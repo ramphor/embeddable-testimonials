@@ -71,6 +71,7 @@ class PostTypes
 
     public function renderRating()
     {
+        echo '<div class="testimonial-loading"></div>'; // wpcs: XSS Ok
         $this->embrati->create('testimonial-rating', array(
             'max' => 5,
             'rating' => 4,
