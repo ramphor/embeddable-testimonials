@@ -9,7 +9,9 @@
 
                 <?php do_action('testimonials_before_loop_item'); ?>
 
-                <?php $t::render('content/testimonial'); ?>
+                <?php $t::render('content/testimonial', array(
+                    'post' => $wp_query->post
+                )); ?>
 
                 <?php do_action('testimonials_after_loop_item'); ?>
 

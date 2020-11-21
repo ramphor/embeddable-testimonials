@@ -6,10 +6,14 @@ use Ramphor\Testimonials\Elementor\TestimonialsWidget;
 
 final class Testimonials
 {
+    const POST_META_STAR_RATING = '_ramphor_testimonial_rating';
+
     protected static $instance;
 
     public $postType;
     public $embrati;
+    public $ajax;
+    public static $version;
 
     public static function getInstance()
     {
@@ -21,17 +25,35 @@ final class Testimonials
 
     private function __construct()
     {
+        $this->includes();
         $this->initFeatures();
         $this->integrateWithOtherPlugins();
     }
 
+    protected function includes()
+    {
+        require_once dirname(__FILE__) . '/testimonial-functions.php';
+    }
+
     protected function initFeatures()
     {
+        $pluginInfo = get_file_data(EMBEDDABLE_TESTIMONIALS_PLUGIN_FILE, array(
+            'version' => 'Version'
+        ));
+        static::$version = $pluginInfo['version'];
+
         $this->postType = new PostTypes();
         $this->embrati  = Embrati::getInstance();
+        $this->ajax     = new AjaxRequest();
 
         add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));
         add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 40);
+        add_action('embrati_registered_scripts', array($this, 'registerTestimonialScripts'));
+        add_filter('embrati_enqueue_script', array($this, 'changeEnqueueSCript'));
+
+        add_action('init', array($this->ajax, 'init'));
+
+        $this->embrati->setJsRateCallback('ramphor_set_star_rating');
     }
 
     public function integrateWithOtherPlugins()
@@ -85,5 +107,32 @@ final class Testimonials
         // Call scripts
         wp_enqueue_script('glide');
         wp_enqueue_style('glide-theme');
+    }
+
+    public function registerTestimonialScripts()
+    {
+        wp_register_script(
+            'ramphor-testimonials',
+            $this->asset_url('js/testimonials.js'),
+            array('embrati'),
+            Testimonials::$version,
+            true
+        );
+
+        $globalData = array(
+            'set_rate_url' => admin_url('admin-ajax.php?action=ramphor_testimonial_set_rate'),
+        );
+        $current_screen = get_current_screen();
+        if ($current_screen->id === 'testimonial') {
+            global $post;
+            $globalData['current_nonce'] = wp_create_nonce('set_star_rating_for_' . $post->ID);
+            $globalData['post_id'] = $post->ID;
+        }
+        wp_localize_script('ramphor-testimonials', 'testimonials_global', $globalData);
+    }
+
+    public function changeEnqueueSCript()
+    {
+        return 'ramphor-testimonials';
     }
 }

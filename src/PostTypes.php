@@ -2,6 +2,7 @@
 namespace Ramphor\Testimonials;
 
 use Embrati\Embrati;
+use Ramphor\Testimonials\Testimonials;
 
 class PostTypes
 {
@@ -69,11 +70,15 @@ class PostTypes
         );
     }
 
-    public function renderRating()
+    public function renderRating($post)
     {
+        echo '<div class="testimonial-loading"></div>'; // wpcs: XSS Ok
+        $rating = floatval(get_post_meta($post->ID, Testimonials::POST_META_STAR_RATING, true));
         $this->embrati->create('testimonial-rating', array(
             'max' => 5,
-            'rating' => 4,
+            'rating' => $rating,
+            'step' => 0.5,
+            'starSize' => 32
         ));
     }
 

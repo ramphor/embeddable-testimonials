@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/ramphor/embeddable-testimonials
  * Author: Ramphor Premium
  * Author URI: https://puleeno.com
- * Version: 1.0.0
+ * Version: 1.0.0.13
  * Description: Create a testimonials for your site as WordPress plugin or embed to other plugins, themes
  */
 

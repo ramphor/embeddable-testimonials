@@ -4,6 +4,9 @@
             <?php the_post_thumbnail('thumbnail'); ?>
         </div>
     <?php endif; ?>
+    <div class="rating"><?php echo $e->display('testimonials-rating', array(
+        'rating' => ramphor_testimonial_get_rating(),
+    )); ?></div>
     <div class="desc"><?php the_content(); ?></div>
     <div class="position">
         <span class="testimony"><?php the_title(); ?></span>
