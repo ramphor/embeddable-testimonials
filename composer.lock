@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d9d28720519ed3ef8954f460ec228f7",
+    "content-hash": "6a89dfdb2bccdc64a6231910fa7d5125",
     "packages": [
         {
             "name": "jankx/helpers",
@@ -12,15 +12,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/helpers.git",
-                "reference": "3ca5aa983562c1a24a46c9b4d9c65477a045af7b"
+                "reference": "0de4fc85d751acd95f430193473d093bfeae89d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/helpers/zipball/3ca5aa983562c1a24a46c9b4d9c65477a045af7b",
-                "reference": "3ca5aa983562c1a24a46c9b4d9c65477a045af7b",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/0de4fc85d751acd95f430193473d093bfeae89d3",
+                "reference": "0de4fc85d751acd95f430193473d093bfeae89d3",
                 "shasum": ""
             },
             "type": "library",
+            "autoload": {
+                "files": [
+                    "./loader.php"
+                ]
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -32,7 +37,7 @@
                 }
             ],
             "description": "The helpers for Jankx Framework",
-            "time": "2020-10-20T19:53:48+00:00"
+            "time": "2020-12-17T10:31:42+00:00"
         },
         {
             "name": "jankx/template",
@@ -76,12 +81,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template-engine.git",
-                "reference": "33ac45314098b554c8acdab4cb5d74aa1a752210"
+                "reference": "0402f067294ff4fd42187da1ca70f8b3a3f9aa78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template-engine/zipball/33ac45314098b554c8acdab4cb5d74aa1a752210",
-                "reference": "33ac45314098b554c8acdab4cb5d74aa1a752210",
+                "url": "https://api.github.com/repos/jankx/template-engine/zipball/0402f067294ff4fd42187da1ca70f8b3a3f9aa78",
+                "reference": "0402f067294ff4fd42187da1ca70f8b3a3f9aa78",
                 "shasum": ""
             },
             "require": {
@@ -104,11 +109,11 @@
                 }
             ],
             "description": "The template engine for Jankx Framework",
-            "time": "2020-09-30T08:43:06+00:00"
+            "time": "2020-12-17T10:32:04+00:00"
         },
         {
             "name": "ramphor/embrati",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramphor/embrati.git",
@@ -144,7 +149,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "ramphor/embrati": 20,
         "jankx/template": 20
     },
     "prefer-stable": false,
