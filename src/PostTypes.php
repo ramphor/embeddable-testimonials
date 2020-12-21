@@ -17,6 +17,7 @@ class PostTypes
         add_action('init', array($this, 'registerTaxonomies'), 15);
         add_action('add_meta_boxes', array($this, 'registerRatingMetabox'));
         add_action('add_meta_boxes', array($this, 'registerMetabox'));
+        add_action('save_post', array($this, 'saveTestimonialMetas'), 10, 2);
     }
 
     public function registerPostTypes()
@@ -94,21 +95,61 @@ class PostTypes
         );
     }
 
-    public function renderMetadataBox()
+    public function renderMetadataBox($post)
     {
         ?>
         <p>
             <label for=""><?php _e('Testimony Name', 'ramphor_testimonials'); ?></label>
-            <input type="text" class="widefat" />
+            <input
+                type="text"
+                name="testimony_name"
+                class="widefat"
+                value="<?php echo sanitize_text_field(get_post_meta($post->ID, 'testimony_name', true)); ?>"
+            />
         </p>
         <p>
             <label for=""><?php _e('Testimony\'s Company', 'ramphor_testimonials'); ?></label>
-            <input type="text" class="widefat">
+            <input
+                type="text"
+                class="widefat"
+                name="testimonial_company"
+                value="<?php echo sanitize_text_field(get_post_meta($post->ID, 'testimonial_company', true)); ?>"
+            />
         </p>
         <p>
             <label for=""><?php _e('Position', 'ramphor_testimonials'); ?></label>
-            <input type="text" class="widefat">
+            <input
+                type="text"
+                class="widefat"
+                name="testimonial_position"
+                value="<?php echo sanitize_text_field(get_post_meta($post->ID, 'testimonial_position', true)); ?>"
+            />
         </p>
         <?php
+    }
+
+    public function saveTestimonialMetas($post_id, $post)
+    {
+        if (static::RATING_POST_TYPE !== $post->post_type) {
+            return;
+        }
+        if (isset($_POST['testimony_name'])) {
+            $testimony_name = $_POST['testimony_name'];
+            if (!empty($testimony_name)) {
+                update_post_meta($post_id, 'testimony_name', $testimony_name);
+            }
+        }
+        if (isset($_POST['testimonial_company'])) {
+            $testimonial_company = $_POST['testimonial_company'];
+            if (!empty($testimonial_company)) {
+                update_post_meta($post_id, 'testimonial_company', $testimonial_company);
+            }
+        }
+        if (isset($_POST['testimonial_position'])) {
+            $testimonial_position = $_POST['testimonial_position'];
+            if (!empty($testimonial_position)) {
+                update_post_meta($post_id, 'testimonial_position', $testimonial_position);
+            }
+        }
     }
 }
