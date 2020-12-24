@@ -11,6 +11,7 @@ class TestimonialsRenderer
     protected $query;
     protected $carouselId;
     protected $props = array();
+    protected $currentIndex = 0;
 
     public function __construct($query = null)
     {
@@ -103,13 +104,18 @@ class TestimonialsRenderer
         echo '<div class="glide__track" data-glide-el="track">...</div>';
     }
 
-    public function glides_bullets()
+    public function glides_bullets($wp_query)
     {
+        $items = ceil($wp_query->post_count / array_get($this->props, 'rows', 1));
+        $pages = ceil($items / array_get($this->props, 'items', 3));
+        if ($pages < 2) {
+            return;
+        }
         ?>
         <div class="glide__bullets" data-glide-el="controls[nav]">
-            <button class="glide__bullet" data-glide-dir="=0"></button>
-            <button class="glide__bullet" data-glide-dir="=1"></button>
-            <button class="glide__bullet" data-glide-dir="=2"></button>
+            <?php for ($i=0; $i < $pages; $i++) : ?>
+                <button class="glide__bullet" data-glide-dir="=<?php echo $i; ?>"></button>
+            <?php endfor; ?>
         </div>
         <?php
     }
@@ -126,14 +132,27 @@ class TestimonialsRenderer
         echo '</div>';
     }
 
-    public function open_glides_slide()
+    public function open_glides_slide($wp_query)
     {
-        echo '<div class="glide__slide">';
+        if ($this->currentIndex === 0) {
+            echo '<div class="glide__slide">';
+        }
     }
 
-    public function close_glides_slide()
+    public function close_glides_slide($wp_query)
     {
-        echo '</div>';
+        $this->currentIndex += 1;
+        $rows = array_get($this->props, 'rows', 1);
+
+        if ($this->currentIndex == $rows) {
+            $this->currentIndex = 0;
+        }
+
+        $currentPostIndex = $wp_query->current_post;
+        $totalIndex = $wp_query->post_count - 1;
+        if ($this->currentIndex === 0 || $currentPostIndex >= $totalIndex) {
+            echo '</div>';
+        }
     }
 
     protected function setupScripts()

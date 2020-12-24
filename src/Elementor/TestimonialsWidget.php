@@ -74,7 +74,7 @@ class TestimonialsWidget extends Widget_Base
         $this->add_control(
             'items',
             array(
-                'label'   => __('Number of items', 'ramphor_testimonials'),
+                'label'   => __('Items per page', 'ramphor_testimonials'),
                 'type'    => Controls_Manager::NUMBER,
                 'max'     => 10,
                 'step'    => 1,
@@ -94,6 +94,16 @@ class TestimonialsWidget extends Widget_Base
             )
         );
 
+        $this->add_control(
+            'rows',
+            array(
+                'label' => __('Rows', 'jankx_ecommerce'),
+                'type' => Controls_Manager::NUMBER,
+                'max' => 10,
+                'step' => 1,
+                'default' => 2,
+            )
+        );
 
         $this->end_controls_section();
     }
