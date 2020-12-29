@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "197f51c8893c8340d1e9e20aaa44fe7d2f626c88"
+                "reference": "fdd031966736b3e38d381c20ce07d03418cff0fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/197f51c8893c8340d1e9e20aaa44fe7d2f626c88",
-                "reference": "197f51c8893c8340d1e9e20aaa44fe7d2f626c88",
+                "url": "https://api.github.com/repos/jankx/template/zipball/fdd031966736b3e38d381c20ce07d03418cff0fe",
+                "reference": "fdd031966736b3e38d381c20ce07d03418cff0fe",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                 }
             ],
             "description": "Jankx Template is used to load the template support override, caching.",
-            "time": "2020-11-06T02:09:02+00:00"
+            "time": "2020-12-24T06:07:06+00:00"
         },
         {
             "name": "jankx/template-engine",
