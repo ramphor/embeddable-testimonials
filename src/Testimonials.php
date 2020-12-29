@@ -94,19 +94,19 @@ final class Testimonials
     public function registerScripts()
     {
         global $wp_scripts, $wp_styles;
-        if (!isset($wp_scripts->registered['glide'])) {
-            wp_register_script('glide', $this->asset_url('vendor/glidejs/glide.js'), array(), '3.4.1', true);
+        if (!isset($wp_scripts->registered['splide'])) {
+            wp_register_script('splide', $this->asset_url('vendor/splide/splide.min.js'), array(), '2.4.21', true);
         }
-        if (!isset($wp_styles->registered['glide'])) {
-            wp_register_style('glide', $this->asset_url('vendor/glidejs/css/glide.core.css'), array(), '3.4.1');
+        if (!isset($wp_styles->registered['splide'])) {
+            wp_register_style('splide', $this->asset_url('vendor/splide/css/splide-core.min.css'), array(), '2.4.21');
         }
-        if (!isset($wp_styles->registered['glide-theme'])) {
-            wp_register_style('glide-theme', $this->asset_url('vendor/glidejs/css/glide.theme.css'), array('glide'), '3.4.1');
+        if (!isset($wp_styles->registered['splide-theme'])) {
+            wp_register_style('splide-theme', $this->asset_url('vendor/splide/css/themes/splide-default.min.css'), array('splide'), '2.4.21');
         }
 
         // Call scripts
-        wp_enqueue_script('glide');
-        wp_enqueue_style('glide-theme');
+        wp_enqueue_script('splide');
+        wp_enqueue_style('splide-theme');
     }
 
     public function registerTestimonialScripts()

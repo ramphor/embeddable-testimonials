@@ -56,7 +56,7 @@ class TestimonialsRenderer
             $this->setupGlideJS();
             $this->setupScripts();
             $wrapper_classes[] = 'carousel-style';
-            $wrapper_classes[] = 'glide';
+            $wrapper_classes[] = 'splide';
         } else {
             $wrapper_classes[] = 'card-list';
         }
@@ -79,32 +79,28 @@ class TestimonialsRenderer
 
     protected function setupGlideJS()
     {
-        add_action('testimonials_after_loop', array($this, 'glides_bullets'), 15);
+        add_action('testimonials_before_loop', array($this, 'open_splides_slides'));
+        add_action('testimonials_after_loop', array($this, 'close_splides_slides'));
 
-        add_action('testimonials_before_loop', array($this, 'open_glides_slides'));
-        add_action('testimonials_after_loop', array($this, 'close_glides_slides'));
-
-        add_action('testimonials_before_loop_item', array($this, 'open_glides_slide'));
-        add_action('testimonials_after_loop_item', array($this, 'close_glides_slide'));
+        add_action('testimonials_before_loop_item', array($this, 'open_splides_slide'));
+        add_action('testimonials_after_loop_item', array($this, 'close_splides_slide'));
     }
 
     protected function cleanGlideJS()
     {
-        remove_action('testimonials_after_loop', array($this, 'glides_bullets'), 15);
+        remove_action('testimonials_before_loop', array($this, 'open_splides_slides'));
+        remove_action('testimonials_after_loop', array($this, 'close_splides_slides'));
 
-        remove_action('testimonials_before_loop', array($this, 'open_glides_slides'));
-        remove_action('testimonials_after_loop', array($this, 'close_glides_slides'));
-
-        remove_action('testimonials_before_loop_item', array($this, 'open_glides_slide'));
-        remove_action('testimonials_after_loop_item', array($this, 'close_glides_slide'));
+        remove_action('testimonials_before_loop_item', array($this, 'open_splides_slide'));
+        remove_action('testimonials_after_loop_item', array($this, 'close_splides_slide'));
     }
 
-    public function glides_track()
+    public function splides_track()
     {
-        echo '<div class="glide__track" data-glide-el="track">...</div>';
+        echo '<div class="splide__track" data-splide-el="track">...</div>';
     }
 
-    public function glides_bullets($wp_query)
+    public function splides_bullets($wp_query)
     {
         $items = ceil($wp_query->post_count / array_get($this->props, 'rows', 1));
         $pages = ceil($items / array_get($this->props, 'items', 3));
@@ -112,34 +108,34 @@ class TestimonialsRenderer
             return;
         }
         ?>
-        <div class="glide__bullets" data-glide-el="controls[nav]">
+        <div class="splide__bullets" data-splide-el="controls[nav]">
             <?php for ($i=0; $i < $pages; $i++) : ?>
-                <button class="glide__bullet" data-glide-dir="=<?php echo $i; ?>"></button>
+                <button class="splide__bullet" data-splide-dir="=<?php echo $i; ?>"></button>
             <?php endfor; ?>
         </div>
         <?php
     }
 
-    public function open_glides_slides()
+    public function open_splides_slides()
     {
-        echo '<div class="glide__track" data-glide-el="track">';
-            echo '<div class="glide__slides">';
+        echo '<div class="splide__track" data-splide-el="track">';
+            echo '<ul class="splide__list">';
     }
 
-    public function close_glides_slides()
+    public function close_splides_slides()
     {
-            echo '</div>';
+            echo '</ul>';
         echo '</div>';
     }
 
-    public function open_glides_slide($wp_query)
+    public function open_splides_slide($wp_query)
     {
         if ($this->currentIndex === 0) {
-            echo '<div class="glide__slide">';
+            echo '<div class="splide__slide">';
         }
     }
 
-    public function close_glides_slide($wp_query)
+    public function close_splides_slide($wp_query)
     {
         $this->currentIndex += 1;
         $rows = array_get($this->props, 'rows', 1);
@@ -164,16 +160,19 @@ class TestimonialsRenderer
     {
         ?>
         <script>
-            new Glide('#<?php echo $this->carouselId; ?>', {
+            new Splide('#<?php echo $this->carouselId; ?>', {
                 type: 'carousel',
                 startAt: 0,
-                perView: 3,
+                perPage: 3,
+                padding: 10,
+                gap: 20,
+                arrows: false,
                 breakpoints: {
                     800: {
-                        perView: 2
+                        perPage: 2
                     },
                     600: {
-                        perView: 1
+                        perPage: 1
                     }
                 }
             }).mount();
