@@ -95,27 +95,6 @@ class TestimonialsRenderer
         remove_action('testimonials_after_loop_item', array($this, 'close_splides_slide'));
     }
 
-    public function splides_track()
-    {
-        echo '<div class="splide__track" data-splide-el="track">...</div>';
-    }
-
-    public function splides_bullets($wp_query)
-    {
-        $items = ceil($wp_query->post_count / array_get($this->props, 'rows', 1));
-        $pages = ceil($items / array_get($this->props, 'items', 3));
-        if ($pages < 2) {
-            return;
-        }
-        ?>
-        <div class="splide__bullets" data-splide-el="controls[nav]">
-            <?php for ($i=0; $i < $pages; $i++) : ?>
-                <button class="splide__bullet" data-splide-dir="=<?php echo $i; ?>"></button>
-            <?php endfor; ?>
-        </div>
-        <?php
-    }
-
     public function open_splides_slides()
     {
         echo '<div class="splide__track" data-splide-el="track">';
