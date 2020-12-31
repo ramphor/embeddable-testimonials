@@ -28,9 +28,9 @@ class TestimonialsQuery
 
         if (!empty($args['orderby']) && $args['orderby'] !== 'none') {
             $ret['orderby'] = $args['orderby'];
-            if (isset($args['order']) && in_array(strtolower($args['order']), array('asc', 'desc'))) {
-                $ret['order'] = $args['order'];
-            }
+        }
+        if (isset($args['order']) && in_array(strtolower($args['order']), array('asc', 'desc'))) {
+            $ret['order'] = $args['order'];
         }
 
         if (!empty($args['limit'])) {

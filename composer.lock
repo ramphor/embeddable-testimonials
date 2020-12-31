@@ -117,12 +117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/wordpress-specs.git",
-                "reference": "2e14fb40fc7ab4c9cfe46dc2aa5361fb6f945063"
+                "reference": "bbf6e7d7903c9901253d83b3deffd0576ed16dab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/wordpress-specs/zipball/2e14fb40fc7ab4c9cfe46dc2aa5361fb6f945063",
-                "reference": "2e14fb40fc7ab4c9cfe46dc2aa5361fb6f945063",
+                "url": "https://api.github.com/repos/jankx/wordpress-specs/zipball/bbf6e7d7903c9901253d83b3deffd0576ed16dab",
+                "reference": "bbf6e7d7903c9901253d83b3deffd0576ed16dab",
                 "shasum": ""
             },
             "type": "library",
@@ -142,7 +142,7 @@
                 }
             ],
             "description": " Define the WordPress specs to reuse in themes or plugins",
-            "time": "2020-12-31T04:51:03+00:00"
+            "time": "2020-12-31T06:13:57+00:00"
         },
         {
             "name": "ramphor/embrati",
