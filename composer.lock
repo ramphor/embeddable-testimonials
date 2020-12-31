@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a89dfdb2bccdc64a6231910fa7d5125",
+    "content-hash": "cd3569a28a19298cbcae7f65087439dd",
     "packages": [
         {
             "name": "jankx/helpers",
@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "fdd031966736b3e38d381c20ce07d03418cff0fe"
+                "reference": "d7193698e820a2b9ef960ef6f4506faf384cc5ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/fdd031966736b3e38d381c20ce07d03418cff0fe",
-                "reference": "fdd031966736b3e38d381c20ce07d03418cff0fe",
+                "url": "https://api.github.com/repos/jankx/template/zipball/d7193698e820a2b9ef960ef6f4506faf384cc5ad",
+                "reference": "d7193698e820a2b9ef960ef6f4506faf384cc5ad",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                 }
             ],
             "description": "Jankx Template is used to load the template support override, caching.",
-            "time": "2020-12-24T06:07:06+00:00"
+            "time": "2020-12-31T01:27:59+00:00"
         },
         {
             "name": "jankx/template-engine",
@@ -110,6 +110,39 @@
             ],
             "description": "The template engine for Jankx Framework",
             "time": "2020-12-17T10:32:04+00:00"
+        },
+        {
+            "name": "jankx/wordpress-specs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/wordpress-specs.git",
+                "reference": "2e14fb40fc7ab4c9cfe46dc2aa5361fb6f945063"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/wordpress-specs/zipball/2e14fb40fc7ab4c9cfe46dc2aa5361fb6f945063",
+                "reference": "2e14fb40fc7ab4c9cfe46dc2aa5361fb6f945063",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Specs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": " Define the WordPress specs to reuse in themes or plugins",
+            "time": "2020-12-31T04:51:03+00:00"
         },
         {
             "name": "ramphor/embrati",
@@ -149,7 +182,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "jankx/template": 20
+        "jankx/template": 20,
+        "jankx/wordpress-specs": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

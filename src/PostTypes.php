@@ -6,8 +6,8 @@ use Ramphor\Testimonials\Testimonials;
 
 class PostTypes
 {
-    const RATING_POST_TYPE = 'testimonial';
-    const RATING_CATEGORY_TAXONOMY = 'testimonial_cat';
+    const TESTIMONIAL_POST_TYPE = 'testimonial';
+    const TESTIMONIAL_CATEGORY_TAXONOMY = 'testimonial_cat';
 
     protected $embrati;
 
@@ -27,7 +27,7 @@ class PostTypes
             'plural_name' => __('Testimonial', 'ramphor_testimonials'),
         );
         register_post_type(
-            static::RATING_POST_TYPE,
+            static::TESTIMONIAL_POST_TYPE,
             apply_filters('ramphor_testimonial_post_type_args', array(
                 'public' => false,
                 'labels' => $lables,
@@ -46,14 +46,15 @@ class PostTypes
             'plural_name' => __('Category', 'ramphor_testimonials'),
         );
         register_taxonomy(
-            static::RATING_CATEGORY_TAXONOMY,
-            static::RATING_POST_TYPE,
+            static::TESTIMONIAL_CATEGORY_TAXONOMY,
+            static::TESTIMONIAL_POST_TYPE,
             apply_filters('ramphor_testimonial_category_taxonomy_args', array(
                 'public' => false,
                 'labels' => $labels,
                 'hierarchical' => true,
                 'show_ui' => true,
                 'show_in_menu' => true,
+                'show_admin_column' => true,
             ))
         );
     }
@@ -66,7 +67,7 @@ class PostTypes
             'testimonial_rating',
             __('Rating', 'ramphor_testimonials'),
             array($this, 'renderRating'),
-            static::RATING_POST_TYPE,
+            static::TESTIMONIAL_POST_TYPE,
             'side'
         );
     }
@@ -89,7 +90,7 @@ class PostTypes
             'testimonial_metadata',
             __('Testimonial Informations', 'ramphor_testimonials'),
             array($this, 'renderMetadataBox'),
-            static::RATING_POST_TYPE,
+            static::TESTIMONIAL_POST_TYPE,
             'normal',
             'high'
         );
@@ -130,7 +131,7 @@ class PostTypes
 
     public function saveTestimonialMetas($post_id, $post)
     {
-        if (static::RATING_POST_TYPE !== $post->post_type) {
+        if (static::TESTIMONIAL_POST_TYPE !== $post->post_type) {
             return;
         }
         if (isset($_POST['testimony_name'])) {

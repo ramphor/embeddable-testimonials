@@ -4,7 +4,9 @@ namespace Ramphor\Testimonials\Elementor;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 use Ramphor\Testimonials\TestimonialsQuery;
+use Ramphor\Testimonials\PostTypes;
 use Ramphor\Testimonials\Renderer\TestimonialsRenderer;
+use Jankx\Specs\WP_Query;
 
 class TestimonialsWidget extends Widget_Base
 {
@@ -54,11 +56,30 @@ class TestimonialsWidget extends Widget_Base
                 'default'     => 0,
                 'options'     => get_terms(
                     array(
-                        'taxonomy'   => 'testimonial_cat',
+                        'taxonomy'   => PostTypes::TESTIMONIAL_CATEGORY_TAXONOMY,
                         'fields'     => 'id=>name',
                         'hide_empty' => false,
                     )
                 ),
+            )
+        );
+
+        $this->add_control(
+            'order_by',
+            array(
+                'label'   => __('Order by', 'ramphor_testimonials'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => WP_Query::order_by(),
+                'default' => WP_Query::DEFAULT_ORDER_BY
+            )
+        );
+        $this->add_control(
+            'order',
+            array(
+                'label'   => __('Order by', 'ramphor_testimonials'),
+                'type'    => Controls_Manager::SELECT,
+                'options' => WP_Query::order(),
+                'default' => WP_Query::DEFAULT_ORDER
             )
         );
 
@@ -84,17 +105,6 @@ class TestimonialsWidget extends Widget_Base
         );
 
         $this->add_control(
-            'limit',
-            array(
-                'label'   => __('Number of Testimonials', 'ramphor_testimonials'),
-                'type'    => Controls_Manager::NUMBER,
-                'max'     => 100,
-                'step'    => 1,
-                'default' => 5,
-            )
-        );
-
-        $this->add_control(
             'rows',
             array(
                 'label' => __('Rows', 'jankx_ecommerce'),
@@ -105,13 +115,34 @@ class TestimonialsWidget extends Widget_Base
             )
         );
 
+        $this->add_control(
+            'limit',
+            array(
+                'label'   => __('Limit', 'ramphor_testimonials'),
+                'type'    => Controls_Manager::NUMBER,
+                'max'     => 100,
+                'step'    => 1,
+                'default' => 5,
+            )
+        );
+
         $this->end_controls_section();
     }
 
     protected function render()
     {
-        $settings = $this->get_settings_for_display();
-        $query    = new TestimonialsQuery(array());
+        $settings   = $this->get_settings_for_display();
+        $query_args = array(
+            'orderby' => array_get($settings, 'order_by'),
+            'order' => array_get($settings, 'order'),
+            'limit' => array_get($settings, 'limit', 5),
+        );
+
+        if (array_get($settings, 'category')) {
+            $query_args['category'] = array_get($settings, 'category');
+        }
+
+        $query    = new TestimonialsQuery($query_args);
         $renderer = new TestimonialsRenderer($query);
 
         $renderer->setProps($settings);
