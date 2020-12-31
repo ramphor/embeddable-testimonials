@@ -78,8 +78,7 @@ class TestimonialsWidget extends Widget_Base
             array(
                 'label'   => __('Order by', 'ramphor_testimonials'),
                 'type'    => Controls_Manager::SELECT,
-                'options' => WP_Query::order(),
-                'default' => WP_Query::DEFAULT_ORDER
+                'options' => WP_Query::order()
             )
         );
 
