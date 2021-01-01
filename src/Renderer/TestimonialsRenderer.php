@@ -29,7 +29,10 @@ class TestimonialsRenderer
         if (!is_array($props)) {
             return;
         }
-        $this->props = $props;
+        $this->props = apply_filters(
+            'ramphor_embeded_testimonials_renderer_props',
+            $props
+        );
     }
 
     protected function getHeaderContent()
