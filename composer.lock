@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/helpers.git",
-                "reference": "0de4fc85d751acd95f430193473d093bfeae89d3"
+                "reference": "e3d0de232c4bfcb69e85e1ffafc286ece482eccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/helpers/zipball/0de4fc85d751acd95f430193473d093bfeae89d3",
-                "reference": "0de4fc85d751acd95f430193473d093bfeae89d3",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/e3d0de232c4bfcb69e85e1ffafc286ece482eccc",
+                "reference": "e3d0de232c4bfcb69e85e1ffafc286ece482eccc",
                 "shasum": ""
             },
             "type": "library",
@@ -37,7 +37,7 @@
                 }
             ],
             "description": "The helpers for Jankx Framework",
-            "time": "2020-12-17T10:31:42+00:00"
+            "time": "2021-02-04T05:28:23+00:00"
         },
         {
             "name": "jankx/template",
@@ -45,12 +45,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template.git",
-                "reference": "61189c49c02a14fbe19f9986260a317b94173346"
+                "reference": "5147a87ed34617316d15880dbf00035cfad46283"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/61189c49c02a14fbe19f9986260a317b94173346",
-                "reference": "61189c49c02a14fbe19f9986260a317b94173346",
+                "url": "https://api.github.com/repos/jankx/template/zipball/5147a87ed34617316d15880dbf00035cfad46283",
+                "reference": "5147a87ed34617316d15880dbf00035cfad46283",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                 }
             ],
             "description": "Jankx Template is used to load the template support override, caching.",
-            "time": "2021-01-08T01:58:43+00:00"
+            "time": "2021-01-28T02:33:57+00:00"
         },
         {
             "name": "jankx/template-engine",
