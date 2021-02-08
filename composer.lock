@@ -12,14 +12,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/helpers.git",
-                "reference": "e3d0de232c4bfcb69e85e1ffafc286ece482eccc"
+                "reference": "a7d4da373e7b01e997333b644b6b1dc890f18d28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/helpers/zipball/e3d0de232c4bfcb69e85e1ffafc286ece482eccc",
-                "reference": "e3d0de232c4bfcb69e85e1ffafc286ece482eccc",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/a7d4da373e7b01e997333b644b6b1dc890f18d28",
+                "reference": "a7d4da373e7b01e997333b644b6b1dc890f18d28",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
@@ -37,7 +38,11 @@
                 }
             ],
             "description": "The helpers for Jankx Framework",
-            "time": "2021-02-04T05:28:23+00:00"
+            "support": {
+                "issues": "https://github.com/jankx/helpers/issues",
+                "source": "https://github.com/jankx/helpers/tree/master"
+            },
+            "time": "2021-02-07T13:35:34+00:00"
         },
         {
             "name": "jankx/template",
@@ -56,6 +61,7 @@
             "require": {
                 "jankx/template-engine": "dev-master"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -73,6 +79,10 @@
                 }
             ],
             "description": "Jankx Template is used to load the template support override, caching.",
+            "support": {
+                "issues": "https://github.com/jankx/template/issues",
+                "source": "https://github.com/jankx/template/tree/master"
+            },
             "time": "2021-01-28T02:33:57+00:00"
         },
         {
@@ -92,6 +102,7 @@
             "require": {
                 "jankx/helpers": "dev-master"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -109,6 +120,10 @@
                 }
             ],
             "description": "The template engine for Jankx Framework",
+            "support": {
+                "issues": "https://github.com/jankx/template-engine/issues",
+                "source": "https://github.com/jankx/template-engine/tree/master"
+            },
             "time": "2020-12-31T15:42:16+00:00"
         },
         {
@@ -125,6 +140,7 @@
                 "reference": "bbf6e7d7903c9901253d83b3deffd0576ed16dab",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -142,6 +158,10 @@
                 }
             ],
             "description": " Define the WordPress specs to reuse in themes or plugins",
+            "support": {
+                "issues": "https://github.com/jankx/wordpress-specs/issues",
+                "source": "https://github.com/jankx/wordpress-specs/tree/master"
+            },
             "time": "2020-12-31T06:13:57+00:00"
         },
         {
@@ -175,6 +195,10 @@
                 }
             ],
             "description": "Embed rating",
+            "support": {
+                "issues": "https://github.com/ramphor/embrati/issues",
+                "source": "https://github.com/ramphor/embrati/tree/0.0.1"
+            },
             "time": "2020-11-21T12:42:56+00:00"
         }
     ],
@@ -189,5 +213,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
