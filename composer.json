@@ -11,8 +11,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "ramphor/embrati": "0.0.1",
-        "jankx/template": "dev-master",
+        "ramphor/embrati": "^0.5",
+        "jankx/template": "*",
         "jankx/wordpress-specs": "dev-master"
     },
     "autoload": {
