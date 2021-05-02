@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "require": {
         "ramphor/embrati": "^0.5",
-        "jankx/template": "*",
+        "jankx/template": "^1.0",
         "jankx/wordpress-specs": "dev-master"
     },
     "autoload": {
