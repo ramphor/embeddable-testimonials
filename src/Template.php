@@ -8,13 +8,14 @@ class Template
 {
     protected static $templateLoader;
 
-    protected static function getLoader()
+    protected static function getEngine()
     {
         if (is_null(static::$templateLoader)) {
             $templateDirectory = sprintf('%s/templates', dirname(EMBEDDABLE_TESTIMONIALS_PLUGIN_FILE));
-            static::$templateLoader = TemlateLib::getLoader(
-                $templateDirectory,
+            static::$templateLoader = TemlateLib::createEngine(
+                'testimonials',
                 apply_filters('ramphor_testimonals_templates_directory_name', 'testimonials'),
+                $templateDirectory,
                 'wordpress'
             );
         }
@@ -32,7 +33,7 @@ class Template
         $args[1]['e'] = Testimonials::getInstance()->embrati;
 
         return call_user_func_array(
-            array(static::getLoader(), 'render'),
+            array(static::getEngine(), 'render'),
             $args
         );
     }

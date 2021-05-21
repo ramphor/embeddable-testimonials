@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d84ea419998a87bf80c3938f8650630c",
+    "content-hash": "8d151e5b69cdc7b8c282720de2033ec2",
     "packages": [
         {
             "name": "jankx/helpers",
@@ -20,6 +20,7 @@
                 "reference": "e2ba7033abc371a3982bd7181cd8ea4a3fa832a8",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -40,25 +41,94 @@
                 }
             ],
             "description": "The helpers for Jankx Framework",
+            "support": {
+                "issues": "https://github.com/jankx/helpers/issues",
+                "source": "https://github.com/jankx/helpers/tree/master"
+            },
             "time": "2021-03-27T08:09:09+00:00"
         },
         {
-            "name": "jankx/template",
-            "version": "1.0.5",
+            "name": "jankx/plates",
+            "version": "v3.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jankx/template.git",
-                "reference": "923b5c59fd3626cc2b0f9b28cc0e90147cdaabca"
+                "url": "https://github.com/jankx/plates.git",
+                "reference": "3732d552284792a596d6d0386dc80ac56e67bde1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template/zipball/923b5c59fd3626cc2b0f9b28cc0e90147cdaabca",
-                "reference": "923b5c59fd3626cc2b0f9b28cc0e90147cdaabca",
+                "url": "https://api.github.com/repos/jankx/plates/zipball/3732d552284792a596d6d0386dc80ac56e67bde1",
+                "reference": "3732d552284792a596d6d0386dc80ac56e67bde1",
                 "shasum": ""
             },
             "require": {
-                "jankx/template-engine": "^1.0"
+                "php": "^7.0|^8.0"
             },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Plates\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Reinink",
+                    "email": "jonathan@reinink.ca",
+                    "role": "Developer"
+                },
+                {
+                    "name": "RJ Garcia",
+                    "email": "ragboyjr@icloud.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Plates, the native PHP template system that's fast, easy to use and easy to extend.",
+            "homepage": "https://platesphp.com",
+            "keywords": [
+                "league",
+                "package",
+                "templates",
+                "templating",
+                "views"
+            ],
+            "support": {
+                "source": "https://github.com/jankx/plates/tree/v3"
+            },
+            "time": "2021-05-18T16:17:03+00:00"
+        },
+        {
+            "name": "jankx/template",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/template.git",
+                "reference": "0cd3ab1772730aa16086c404e5c58e74294d8ca4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/template/zipball/0cd3ab1772730aa16086c404e5c58e74294d8ca4",
+                "reference": "0cd3ab1772730aa16086c404e5c58e74294d8ca4",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/template-engine": "*"
+            },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -76,29 +146,36 @@
                 }
             ],
             "description": "Jankx Template is used to load the template support override, caching.",
-            "time": "2021-03-26T10:39:25+00:00"
+            "support": {
+                "issues": "https://github.com/jankx/template/issues",
+                "source": "https://github.com/jankx/template/tree/master"
+            },
+            "time": "2021-05-18T17:08:41+00:00"
         },
         {
             "name": "jankx/template-engine",
-            "version": "1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template-engine.git",
-                "reference": "d531d3df820bd2201fd0e6e30aef1ec943a4ca8f"
+                "reference": "a8d2f31b71ba3dfe0c6b67c29b10f4d0e5a79d8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template-engine/zipball/d531d3df820bd2201fd0e6e30aef1ec943a4ca8f",
-                "reference": "d531d3df820bd2201fd0e6e30aef1ec943a4ca8f",
+                "url": "https://api.github.com/repos/jankx/template-engine/zipball/a8d2f31b71ba3dfe0c6b67c29b10f4d0e5a79d8d",
+                "reference": "a8d2f31b71ba3dfe0c6b67c29b10f4d0e5a79d8d",
                 "shasum": ""
             },
             "require": {
-                "jankx/helpers": "*"
+                "jankx/helpers": "*",
+                "jankx/plates": "*",
+                "php": "^5.6|^7.3"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Jankx\\Template\\Engine\\": "src/"
+                    "Jankx\\TemplateEngine\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -112,7 +189,11 @@
                 }
             ],
             "description": "The template engine for Jankx Framework",
-            "time": "2021-03-27T08:04:07+00:00"
+            "support": {
+                "issues": "https://github.com/jankx/template-engine/issues",
+                "source": "https://github.com/jankx/template-engine/tree/master"
+            },
+            "time": "2021-05-21T05:03:55+00:00"
         },
         {
             "name": "jankx/wordpress-specs",
@@ -128,6 +209,7 @@
                 "reference": "38a3d691de1887cbf602f20fe8da052e67a41b3d",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -145,6 +227,10 @@
                 }
             ],
             "description": " Define the WordPress specs to reuse in themes or plugins",
+            "support": {
+                "issues": "https://github.com/jankx/wordpress-specs/issues",
+                "source": "https://github.com/jankx/wordpress-specs/tree/master"
+            },
             "time": "2021-03-20T04:12:11+00:00"
         },
         {
@@ -178,6 +264,10 @@
                 }
             ],
             "description": "Embed rating",
+            "support": {
+                "issues": "https://github.com/ramphor/embrati/issues",
+                "source": "https://github.com/ramphor/embrati/tree/0.5.0"
+            },
             "time": "2021-03-27T04:22:56+00:00"
         }
     ],
@@ -191,5 +281,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
