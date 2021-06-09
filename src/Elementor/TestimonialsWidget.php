@@ -110,7 +110,7 @@ class TestimonialsWidget extends Widget_Base
                 'type' => Controls_Manager::NUMBER,
                 'max' => 10,
                 'step' => 1,
-                'default' => 2,
+                'default' => 1,
             )
         );
 
