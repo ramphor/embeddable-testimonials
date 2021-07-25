@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d151e5b69cdc7b8c282720de2033ec2",
+    "content-hash": "53749da27ce91b797fe5b997c51fdd75",
     "packages": [
+        {
+            "name": "jankx/asset",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/asset.git",
+                "reference": "27ceab16498ee4b2e9a232367be825a708621991"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/asset/zipball/27ceab16498ee4b2e9a232367be825a708621991",
+                "reference": "27ceab16498ee4b2e9a232367be825a708621991",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/helpers": "*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Asset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Jankx Assets is used to manage CSS, JS, libraries with beautiful syntax",
+            "support": {
+                "issues": "https://github.com/jankx/asset/issues",
+                "source": "https://github.com/jankx/asset/tree/master"
+            },
+            "time": "2021-07-25T06:20:35+00:00"
+        },
         {
             "name": "jankx/helpers",
             "version": "dev-master",
@@ -46,6 +87,47 @@
                 "source": "https://github.com/jankx/helpers/tree/master"
             },
             "time": "2021-07-03T12:55:32+00:00"
+        },
+        {
+            "name": "jankx/pagination",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/pagination.git",
+                "reference": "217a8a644c2cb03f203a6fb42689e784df77ba54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/pagination/zipball/217a8a644c2cb03f203a6fb42689e784df77ba54",
+                "reference": "217a8a644c2cb03f203a6fb42689e784df77ba54",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Pagination\\": "src/"
+                },
+                "files": [
+                    "./functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The WordPress pagination support multi styles: number, infinite loop, load more",
+            "support": {
+                "issues": "https://github.com/jankx/pagination/issues",
+                "source": "https://github.com/jankx/pagination/tree/master"
+            },
+            "time": "2021-01-04T05:47:30+00:00"
         },
         {
             "name": "jankx/plates",
@@ -110,6 +192,94 @@
                 "source": "https://github.com/jankx/plates/tree/v3"
             },
             "time": "2021-05-18T16:17:03+00:00"
+        },
+        {
+            "name": "jankx/post-formats",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/post-formats.git",
+                "reference": "0ab94e6f561b326bb7d6199700f1570529721cf9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/post-formats/zipball/0ab94e6f561b326bb7d6199700f1570529721cf9",
+                "reference": "0ab94e6f561b326bb7d6199700f1570529721cf9",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/asset": "*",
+                "jankx/helpers": "*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\PostFormats\\": "src/"
+                },
+                "files": [
+                    "./post-formats.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "Support post formats for Jankx framework",
+            "support": {
+                "issues": "https://github.com/jankx/post-formats/issues",
+                "source": "https://github.com/jankx/post-formats/tree/master"
+            },
+            "time": "2021-07-25T06:47:09+00:00"
+        },
+        {
+            "name": "jankx/post-layout",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/post-layout.git",
+                "reference": "c1e2c8eb73277340dd896912fa31b0bf49b5b346"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/post-layout/zipball/c1e2c8eb73277340dd896912fa31b0bf49b5b346",
+                "reference": "c1e2c8eb73277340dd896912fa31b0bf49b5b346",
+                "shasum": ""
+            },
+            "require": {
+                "jankx/asset": "*",
+                "jankx/pagination": "*",
+                "jankx/template": "*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\PostLayout\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "WordPress post and custom post type layout generator",
+            "support": {
+                "issues": "https://github.com/jankx/post-layout/issues",
+                "source": "https://github.com/jankx/post-layout/tree/master"
+            },
+            "time": "2021-07-25T08:19:11+00:00"
         },
         {
             "name": "jankx/template",
@@ -275,7 +445,9 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "jankx/wordpress-specs": 20
+        "jankx/wordpress-specs": 20,
+        "jankx/post-layout": 20,
+        "jankx/post-formats": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

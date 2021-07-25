@@ -13,7 +13,9 @@
     "require": {
         "ramphor/embrati": "^0.5",
         "jankx/template": "*",
-        "jankx/wordpress-specs": "dev-master"
+        "jankx/wordpress-specs": "*",
+        "jankx/post-layout": "*",
+        "jankx/post-formats": "*"
     },
     "autoload": {
         "psr-4": {
