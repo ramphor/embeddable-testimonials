@@ -26,12 +26,17 @@ class PostTypes
             'name' => __('Testimonials', 'ramphor_testimonials'),
             'plural_name' => __('Testimonial', 'ramphor_testimonials'),
         );
+        $post_type_supports = apply_filters(
+            'ramphor_testimonials_post_type_supports',
+            array('title', 'editor', 'thumbnail', 'excerpt', 'post-formats')
+        );
+
         register_post_type(
             static::TESTIMONIAL_POST_TYPE,
             apply_filters('ramphor_testimonial_post_type_args', array(
                 'public' => false,
                 'labels' => $lables,
-                'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+                'supports' => $post_type_supports,
                 'menu_icon' => 'dashicons-testimonial',
                 'show_ui' => true,
                 'show_in_menu' => true,
