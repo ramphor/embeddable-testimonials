@@ -2,17 +2,23 @@
 namespace Ramphor\Testimonials;
 
 use Embrati\Embrati;
+use Jankx\Template\Template;
+use Jankx\TemplateEngine\Engines\Plates;
+use Jankx\PostLayout\PostLayoutManager;
 use Ramphor\Testimonials\Elementor\TestimonialsWidget;
 
 final class Testimonials
 {
     const POST_META_STAR_RATING = '_ramphor_testimonial_rating';
+    const TEMPLATE_ENGINE_ID = 'ramphor_testimonials';
 
     protected static $instance;
 
     public $postType;
     public $embrati;
     public $ajax;
+    protected $engine;
+
     public static $version;
 
     public static function getInstance()
@@ -47,11 +53,12 @@ final class Testimonials
         $this->ajax     = new AjaxRequest();
 
         add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));
-        add_action('wp_enqueue_scripts', array($this, 'registerScripts'), 40);
+
         add_action('embrati_registered_scripts', array($this, 'registerTestimonialScripts'));
         add_filter('embrati_enqueue_script', array($this, 'changeEnqueueSCript'));
 
         add_action('init', array($this->ajax, 'init'));
+        add_action('after_setup_theme', array($this, 'createTemplateEngine'));
 
         $this->embrati->setJsRateCallback('ramphor_set_star_rating');
     }
@@ -91,24 +98,6 @@ final class Testimonials
         );
     }
 
-    public function registerScripts()
-    {
-        global $wp_scripts, $wp_styles;
-        if (!isset($wp_scripts->registered['splide'])) {
-            wp_register_script('splide', $this->asset_url('vendor/splide/js/splide.min.js'), array(), '2.4.21', true);
-        }
-        if (!isset($wp_styles->registered['splide'])) {
-            wp_register_style('splide', $this->asset_url('vendor/splide/css/splide-core.min.css'), array(), '2.4.21');
-        }
-        if (!isset($wp_styles->registered['splide-theme'])) {
-            wp_register_style('splide-theme', $this->asset_url('vendor/splide/css/themes/splide-default.min.css'), array('splide'), '2.4.21');
-        }
-
-        // Call scripts
-        wp_enqueue_script('splide');
-        wp_enqueue_style('splide-theme');
-    }
-
     public function registerTestimonialScripts()
     {
         wp_register_script(
@@ -134,5 +123,20 @@ final class Testimonials
     public function changeEnqueueSCript()
     {
         return 'ramphor-testimonials';
+    }
+
+    public function createTemplateEngine() {
+        $engine = Template::createEngine(
+            static::TEMPLATE_ENGINE_ID,
+            apply_filters('ramphor_testimonals_templates_directory_name', 'testimonials'),
+            sprintf('%s/templates', dirname(EMBEDDABLE_TESTIMONIALS_PLUGIN_FILE)),
+            Plates::ENGINE_NAME
+        );
+        $this->engine = &$engine;
+        PostLayoutManager::createInstance($engine);
+    }
+
+    public function getTemplateEngine() {
+        return $this->engine;
     }
 }

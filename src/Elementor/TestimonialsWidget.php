@@ -7,6 +7,9 @@ use Ramphor\Testimonials\TestimonialsQuery;
 use Ramphor\Testimonials\PostTypes;
 use Ramphor\Testimonials\Renderer\TestimonialsRenderer;
 use Jankx\Specs\WP_Query;
+use Jankx\PostLayout\PostLayoutManager;
+use Jankx\PostLayout\Layout\Card;
+use Jankx\PostLayout\Layout\Carousel;
 
 class TestimonialsWidget extends Widget_Base
 {
@@ -83,50 +86,73 @@ class TestimonialsWidget extends Widget_Base
         );
 
         $this->add_control(
-            'carousel',
-            array(
-                'label'   => __('Enable carousel', 'ramphor_testimonials'),
-                'type'    => Controls_Manager::SWITCHER,
-                'default' => 'yes',
-            )
+            'layout',
+            [
+                'label' => __('Layout', 'ramphor_testimonials'),
+                'type' => Controls_Manager::SELECT,
+                'default' => Card::LAYOUT_NAME,
+                'options' => PostLayoutManager::getLayouts(array(
+                    'field' => 'names',
+                    'exclude' => 'parent'
+                )),
+            ]
         );
 
         $this->add_control(
-            'items',
-            array(
-                'label'   => __('Items per page', 'ramphor_testimonials'),
-                'type'    => Controls_Manager::NUMBER,
-                'max'     => 10,
-                'step'    => 1,
-                'default' => 3,
-                'description' => __('The number of items you want to see on the screen.', 'ramphor_testinomials')
-            )
+            'columns',
+            [
+                'label' => __('Columns', 'ramphor_testimonials'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 1,
+                'max' => 10,
+                'step' => 1,
+                'default' => 4,
+                'of_type' => 'layout',
+                'condition' => array(
+                    'layout' => array(Card::LAYOUT_NAME, Carousel::LAYOUT_NAME)
+                )
+            ]
         );
 
         $this->add_control(
             'rows',
-            array(
-                'label' => __('Rows', 'jankx_ecommerce'),
+            [
+                'label' => __('Rows', 'ramphor_testimonials'),
                 'type' => Controls_Manager::NUMBER,
+                'min' => 1,
                 'max' => 10,
                 'step' => 1,
                 'default' => 1,
-            )
+                'of_type' => 'layout',
+                'condition' => array(
+                    'layout' => array(Carousel::LAYOUT_NAME)
+                )
+            ]
         );
 
         $this->add_control(
-            'limit',
-            array(
-                'label'   => __('Limit', 'ramphor_testimonials'),
-                'type'    => Controls_Manager::NUMBER,
-                'max'     => 100,
-                'step'    => 1,
+            'posts_per_page',
+            [
+                'label' => __('Number of Posts', 'ramphor_testimonials'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 100,
+                'step' => 1,
                 'default' => 5,
-            )
+            ]
         );
 
         $this->end_controls_section();
     }
+
+    public function postLayoutOptionsTranformer($settings) {
+        return array(
+            'columns' => array_get($settings, 'columns', 4),
+            'rows' => array_get($settings, 'rows', 1),
+            'layout' => array_get($settings, 'layout', Carousel::LAYOUT_NAME),
+        );
+    }
+
 
     protected function render()
     {
@@ -134,7 +160,7 @@ class TestimonialsWidget extends Widget_Base
         $query_args = array(
             'orderby' => array_get($settings, 'order_by'),
             'order' => array_get($settings, 'order'),
-            'limit' => array_get($settings, 'limit', 5),
+            'limit' => array_get($settings, 'posts_per_page', 5),
         );
 
         if (array_get($settings, 'category')) {
@@ -144,7 +170,9 @@ class TestimonialsWidget extends Widget_Base
         $query    = new TestimonialsQuery($query_args);
         $renderer = new TestimonialsRenderer($query);
 
-        $renderer->setProps($settings);
+        $renderer->setProps(
+            $this->postLayoutOptionsTranformer($settings)
+        );
 
         echo (string) $renderer;
     }
