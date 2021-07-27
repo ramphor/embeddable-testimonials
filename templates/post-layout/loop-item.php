@@ -1,13 +1,13 @@
 <div <?php post_class('loop-item'); ?>>
-    <?php do_action('jankx_post_layout_before_loop_item', $post); ?>
+    <?php do_action('jankx_testimonial_layout_before_loop_item', $post); ?>
 
     <?php if ($show_thumbnail) : ?>
     <div class="post-thumbnail">
-        <?php do_action('jankx_post_layout_before_loop_post_thumbnail', $post); ?>
+        <?php do_action('jankx_testimonial_layout_before_loop_post_thumbnail', $post); ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
             <?php jankx_the_post_thumbnail($thumbnail_size); ?>
         </a>
-        <?php do_action('jankx_post_layout_after_loop_post_thumbnail', $post); ?>
+        <?php do_action('jankx_testimonial_layout_after_loop_post_thumbnail', $post); ?>
     </div>
     <?php endif; ?>
 
@@ -26,11 +26,11 @@
             <?php foreach ($post_meta_features as $feature => $value) : ?>
                 <li class=<?php echo $feature; ?>>
                 <?php
-                    do_action("jankx_post_layout_meta_before_{$feature}");
+                    do_action("jankx_testimonial_layout_meta_before_{$feature}");
 
                     echo $this->e($this->get_meta_value($value, $feature));
 
-                    do_action("jankx_post_layout_meta_after_{$feature}");
+                    do_action("jankx_testimonial_layout_meta_after_{$feature}");
                 ?>
                 </li>
             <?php endforeach; ?>
@@ -38,5 +38,5 @@
         <?php endif; ?>
     </div>
 
-    <?php do_action('jankx_post_layout_after_loop_item', $post); ?>
+    <?php do_action('jankx_testimonial_layout_after_loop_item', $post); ?>
 </div>

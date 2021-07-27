@@ -17,6 +17,8 @@ final class Testimonials
     public $postType;
     public $embrati;
     public $ajax;
+    public $display;
+
     protected $engine;
 
     public static $version;
@@ -51,6 +53,7 @@ final class Testimonials
         $this->postType = new PostTypes();
         $this->embrati  = Embrati::getInstance();
         $this->ajax     = new AjaxRequest();
+        $this->display = new Display($this);
 
         add_action('wp_enqueue_scripts', array($this->embrati, 'registerStyles'));
 
@@ -58,6 +61,8 @@ final class Testimonials
         add_filter('embrati_enqueue_script', array($this, 'changeEnqueueSCript'));
 
         add_action('init', array($this->ajax, 'init'));
+        add_action('wp', array($this->display, 'display'));
+
         add_action('after_setup_theme', array($this, 'createTemplateEngine'));
 
         $this->embrati->setJsRateCallback('ramphor_set_star_rating');
@@ -125,7 +130,8 @@ final class Testimonials
         return 'ramphor-testimonials';
     }
 
-    public function createTemplateEngine() {
+    public function createTemplateEngine()
+    {
         $engine = Template::createEngine(
             static::TEMPLATE_ENGINE_ID,
             apply_filters('ramphor_testimonals_templates_directory_name', 'testimonials'),
@@ -136,7 +142,8 @@ final class Testimonials
         PostLayoutManager::createInstance($engine);
     }
 
-    public function getTemplateEngine() {
+    public function getTemplateEngine()
+    {
         return $this->engine;
     }
 }

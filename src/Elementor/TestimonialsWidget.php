@@ -145,7 +145,8 @@ class TestimonialsWidget extends Widget_Base
         $this->end_controls_section();
     }
 
-    public function postLayoutOptionsTranformer($settings) {
+    public function postLayoutOptionsTranformer($settings)
+    {
         return array(
             'columns' => array_get($settings, 'columns', 4),
             'rows' => array_get($settings, 'rows', 1),
