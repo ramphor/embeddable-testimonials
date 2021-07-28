@@ -18,8 +18,11 @@ class Display
         add_action('jankx_testimonial_layout_before_loop_item', array($this, 'createVideoOverlay'));
     }
 
-    public function createVideoOverlay()
+    public function createVideoOverlay($post)
     {
+        if ($post->format() !== 'video') {
+            return;
+        }
         $this->templateEngine->render('video-overlay');
     }
 }
