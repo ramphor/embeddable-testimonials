@@ -85,7 +85,7 @@ class TestimonialsWidget extends Widget_Base
             )
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'layout',
             [
                 'label' => __('Layout', 'ramphor_testimonials'),
@@ -98,7 +98,7 @@ class TestimonialsWidget extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'columns',
             [
                 'label' => __('Columns', 'ramphor_testimonials'),
@@ -114,7 +114,7 @@ class TestimonialsWidget extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'rows',
             [
                 'label' => __('Rows', 'ramphor_testimonials'),
@@ -130,7 +130,7 @@ class TestimonialsWidget extends Widget_Base
             ]
         );
 
-        $this->add_control(
+        $this->add_responsive_control(
             'posts_per_page',
             [
                 'label' => __('Number of Posts', 'ramphor_testimonials'),
@@ -148,12 +148,13 @@ class TestimonialsWidget extends Widget_Base
     public function postLayoutOptionsTranformer($settings)
     {
         return array(
-            'columns' => array_get($settings, 'columns', 4),
-            'rows' => array_get($settings, 'rows', 1),
-            'layout' => array_get($settings, 'layout', Carousel::LAYOUT_NAME),
+            'specific_data' => array_get($settings, 'specific_data', ''),
+            'columns_mobile' => array_get($settings, 'columns_mobile'),
+            'columns' => $this->get_responsive_setting('columns', 4),
+            'rows' => $this->get_responsive_setting('rows', 1),
+            'layout' => $this->get_responsive_setting('layout', Carousel::LAYOUT_NAME),
         );
     }
-
 
     protected function render()
     {
@@ -161,7 +162,7 @@ class TestimonialsWidget extends Widget_Base
         $query_args = array(
             'orderby' => array_get($settings, 'order_by'),
             'order' => array_get($settings, 'order'),
-            'limit' => array_get($settings, 'posts_per_page', 5),
+            'limit' => $this->get_responsive_setting('posts_per_page', 5),
         );
 
         if (array_get($settings, 'category')) {
@@ -178,7 +179,22 @@ class TestimonialsWidget extends Widget_Base
         echo (string) $renderer;
     }
 
-    protected function _content_template()
-    {
+    public function get_responsive_setting($field_name, $default_value) {
+        if (is_null($this->settings)) {
+            $this->settings = $this->get_settings_for_display();
+        }
+        $settings = &$this->settings;
+        $desktop_value = array_get($settings, $field_name, $default_value);
+
+        if (jankx_is_mobile()) {
+            $mobile_value = array_get($settings, sprintf('%s_mobile', $field_name));
+            return $mobile_value ? $mobile_value : $desktop_value;
+        }
+        if (jankx_is_tablet()) {
+            $tablet_value = array_get($settings, sprintf('%s_tablet', $field_name));
+            return $tablet_value ? $tablet_value : $desktop_value;
+        }
+
+        return $desktop_value;
     }
 }
