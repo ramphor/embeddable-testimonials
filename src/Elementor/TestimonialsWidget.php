@@ -10,6 +10,7 @@ use Jankx\Specs\WP_Query;
 use Jankx\PostLayout\PostLayoutManager;
 use Jankx\PostLayout\Layout\Card;
 use Jankx\PostLayout\Layout\Carousel;
+use Jankx\PostLayout\Layout\Preset5;
 
 class TestimonialsWidget extends Widget_Base
 {
@@ -99,6 +100,36 @@ class TestimonialsWidget extends Widget_Base
         );
 
         $this->add_responsive_control(
+            'show_carousel_pagination',
+            [
+                'label' => __('Carousel Pagination', 'jankx'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => __('Show', 'jankx'),
+                'label_off' => __('Hide', 'jankx'),
+                'return_value' => 'yes',
+                'default' => 'no',
+                'condition' => array(
+                    'post_layout' => array(Carousel::LAYOUT_NAME, Preset5::LAYOUT_NAME)
+                )
+            ]
+        );
+
+        $this->add_responsive_control(
+            'show_carousel_nav',
+            [
+                'label' => __('Carousel Nav', 'jankx'),
+                'type' => Controls_Manager::SWITCHER,
+                'label_on' => __('Show', 'jankx'),
+                'label_off' => __('Hide', 'jankx'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'condition' => array(
+                    'post_layout' => array(Carousel::LAYOUT_NAME, Preset5::LAYOUT_NAME)
+                )
+            ]
+        );
+
+        $this->add_responsive_control(
             'columns',
             [
                 'label' => __('Columns', 'ramphor_testimonials'),
@@ -153,6 +184,8 @@ class TestimonialsWidget extends Widget_Base
             'columns' => $this->get_responsive_setting('columns', 4),
             'rows' => $this->get_responsive_setting('rows', 1),
             'layout' => $this->get_responsive_setting('layout', Carousel::LAYOUT_NAME),
+            'show_dot'  => $this->get_responsive_setting('show_carousel_pagination', 'no') === 'yes',
+            'show_nav'  => $this->get_responsive_setting('show_carousel_nav', 'yes') === 'yes',
         );
     }
 
