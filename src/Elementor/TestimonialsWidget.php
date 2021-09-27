@@ -138,10 +138,6 @@ class TestimonialsWidget extends Widget_Base
                 'max' => 10,
                 'step' => 1,
                 'default' => 4,
-                'of_type' => 'layout',
-                'condition' => array(
-                    'layout' => array(Card::LAYOUT_NAME, Carousel::LAYOUT_NAME)
-                )
             ]
         );
 
@@ -154,9 +150,21 @@ class TestimonialsWidget extends Widget_Base
                 'max' => 10,
                 'step' => 1,
                 'default' => 1,
-                'of_type' => 'layout',
+            ]
+        );
+
+        $this->add_control(
+            'last_columns_items',
+            [
+                'label' => __('Last Column Items', 'ramphor_testimonials'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 1,
+                'max' => 10,
+                'step' => 1,
+                'default' => 3,
+                'of_type' => 'post_layout',
                 'condition' => array(
-                    'layout' => array(Carousel::LAYOUT_NAME)
+                    'post_layout' => array(Preset5::LAYOUT_NAME)
                 )
             ]
         );
@@ -186,6 +194,7 @@ class TestimonialsWidget extends Widget_Base
             'layout' => $this->get_responsive_setting('layout', Carousel::LAYOUT_NAME),
             'show_dot'  => $this->get_responsive_setting('show_carousel_pagination', 'no') === 'yes',
             'show_nav'  => $this->get_responsive_setting('show_carousel_nav', 'yes') === 'yes',
+            'last_columns_items'  => array_get($settings, 'last_columns_items', 3),
         );
     }
 
