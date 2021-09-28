@@ -14,6 +14,8 @@ use Jankx\PostLayout\Layout\Preset5;
 
 class TestimonialsWidget extends Widget_Base
 {
+    protected $settings;
+
     public function get_name()
     {
         return 'ramphor_testimonials';
