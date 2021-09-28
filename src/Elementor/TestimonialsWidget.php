@@ -101,6 +101,20 @@ class TestimonialsWidget extends Widget_Base
             ]
         );
 
+        if (!empty($item_styles = $this->getItemStyles())) {
+            $item_styles = array_merge(array('default' => __('Default')), $item_styles);
+            $this->add_responsive_control(
+                'item_style',
+                array(
+                    'label'   => __('Item Styles', 'ramphor_testimonials'),
+                    'type'    => Controls_Manager::SELECT,
+                    'options' => $item_styles,
+                    'default' => 'default',
+                )
+            );
+        }
+
+
         $this->add_responsive_control(
             'show_carousel_pagination',
             [
@@ -186,9 +200,13 @@ class TestimonialsWidget extends Widget_Base
         $this->end_controls_section();
     }
 
+    public function getItemStyles() {
+        return apply_filters('ramphor_testimonials_item_styles', array());
+    }
+
     public function postLayoutOptionsTranformer($settings)
     {
-        return array(
+        $postLayoutOptions = array(
             'specific_data' => array_get($settings, 'specific_data', ''),
             'columns_mobile' => array_get($settings, 'columns_mobile'),
             'columns' => $this->get_responsive_setting('columns', 4),
@@ -198,6 +216,13 @@ class TestimonialsWidget extends Widget_Base
             'show_nav'  => $this->get_responsive_setting('show_carousel_nav', 'yes') === 'yes',
             'last_columns_items'  => array_get($settings, 'last_columns_items', 3),
         );
+
+        $itemStyleOptions = array_get($settings, 'item_style', 'default');
+
+        if ($itemStyleOptions !== 'default') {
+            $postLayoutOptions['item_style'] = $itemStyleOptions;
+        }
+        return $postLayoutOptions;
     }
 
     protected function render()
