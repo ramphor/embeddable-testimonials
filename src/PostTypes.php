@@ -54,7 +54,7 @@ class PostTypes
             static::TESTIMONIAL_CATEGORY_TAXONOMY,
             static::TESTIMONIAL_POST_TYPE,
             apply_filters('ramphor_testimonial_category_taxonomy_args', array(
-                'public' => false,
+                'public' => true,
                 'labels' => $labels,
                 'hierarchical' => true,
                 'show_ui' => true,
