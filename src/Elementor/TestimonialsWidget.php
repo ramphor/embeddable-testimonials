@@ -36,6 +36,46 @@ class TestimonialsWidget extends Widget_Base
         return array('general', 'theme-elements');
     }
 
+    protected function getImageSizeName($sizeName)
+    {
+        switch ($sizeName) {
+            case 'thumbnail':
+                return __('Thumbnail');
+            case 'medium':
+                return __('Medium');
+            case 'large':
+                return __('Large');
+            default:
+                return preg_replace_callback(array(
+                    '/^(\w)/',
+                    '/(\w)([\-|_]{1,})/'
+                ), function ($matches) {
+                    if (isset($matches[2])) {
+                        return sprintf('%s ', $matches[1]) ;
+                    } elseif (isset($matches[1])) {
+                        return strtoupper($matches[1]);
+                    }
+                }, $sizeName);
+        }
+    }
+
+    protected function getImageSizes()
+    {
+        $ret = array();
+        foreach (get_intermediate_image_sizes() as $imageSize) {
+            if (apply_filters('jankx_image_size_ignore_medium_large_size', true)) {
+                if ($imageSize === 'medium_large') {
+                    continue;
+                }
+            }
+            $ret[$imageSize] = $this->getImageSizeName($imageSize);
+        }
+        $ret['full'] = __('Full size', 'jankx');
+        $ret['custom'] = __('Custom Size', 'jankx');
+
+        return $ret;
+    }
+
     protected function _register_controls()
     {
         $this->start_controls_section(
@@ -98,6 +138,44 @@ class TestimonialsWidget extends Widget_Base
                     'field' => 'names',
                     'exclude' => 'parent'
                 )),
+            ]
+        );
+
+        $this->add_control(
+            'thumbnail_size',
+            [
+                'label' => __('Image size', 'jankx'),
+                'type' => Controls_Manager::SELECT,
+                'options' => $this->getImageSizes(),
+                'default' => 'medium',
+            ]
+        );
+
+        $this->add_control(
+            'image_width',
+            [
+                'label' => __('Image Width', 'jankx'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'step' =>5,
+                'default' => 400,
+                'condition' => array(
+                    'thumbnail_size' => 'custom'
+                )
+            ]
+        );
+
+        $this->add_control(
+            'image_height',
+            [
+                'label' => __('Image Height', 'jankx'),
+                'type' => Controls_Manager::NUMBER,
+                'min' => 0,
+                'step' =>5,
+                'default' => 320,
+                'condition' => array(
+                    'thumbnail_size' => 'custom',
+                )
             ]
         );
 
@@ -215,6 +293,7 @@ class TestimonialsWidget extends Widget_Base
             'show_dot'  => $this->get_responsive_setting('show_carousel_pagination', 'no') === 'yes',
             'show_nav'  => $this->get_responsive_setting('show_carousel_nav', 'yes') === 'yes',
             'last_columns_items'  => array_get($settings, 'last_columns_items', 3),
+            'thumbnail_size'  => array_get($settings, 'thumbnail_size', 'thumbnail'),
         );
 
         $itemStyleOptions = array_get($settings, 'item_style', 'default');
