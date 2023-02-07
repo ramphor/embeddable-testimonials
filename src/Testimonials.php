@@ -78,12 +78,12 @@ final class Testimonials
 
     protected function integrationWithElementor()
     {
-        add_action('elementor/widgets/widgets_registered', array($this, 'registerElementorWidgets'));
+        add_action('elementor/widgets/elementor/widgets/register', array($this, 'registerElementorWidgets'));
     }
 
     public function registerElementorWidgets($widget_manager)
     {
-        $widget_manager->register_widget_type(new TestimonialsWidget());
+        $widget_manager->register(new TestimonialsWidget());
     }
 
     protected function asset_url($path = '')
