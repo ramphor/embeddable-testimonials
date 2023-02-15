@@ -244,12 +244,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/post-layout.git",
-                "reference": "7b8dc89d7974c4223fd4771f3567a0a08ca9a24e"
+                "reference": "66a3f69ef6b117b00dadd3d14f28552fda7679ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/post-layout/zipball/7b8dc89d7974c4223fd4771f3567a0a08ca9a24e",
-                "reference": "7b8dc89d7974c4223fd4771f3567a0a08ca9a24e",
+                "url": "https://api.github.com/repos/jankx/post-layout/zipball/66a3f69ef6b117b00dadd3d14f28552fda7679ec",
+                "reference": "66a3f69ef6b117b00dadd3d14f28552fda7679ec",
                 "shasum": ""
             },
             "require": {
@@ -279,7 +279,7 @@
                 "issues": "https://github.com/jankx/post-layout/issues",
                 "source": "https://github.com/jankx/post-layout/tree/master"
             },
-            "time": "2023-02-07T15:04:07+00:00"
+            "time": "2023-02-15T04:48:39+00:00"
         },
         {
             "name": "jankx/template",
@@ -328,12 +328,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/template-engine.git",
-                "reference": "a38978dbf3f15be7773b700bd625ab0fbe6ba059"
+                "reference": "6be7051a497ef9855d04455f19ab5a24a602dcb2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/template-engine/zipball/a38978dbf3f15be7773b700bd625ab0fbe6ba059",
-                "reference": "a38978dbf3f15be7773b700bd625ab0fbe6ba059",
+                "url": "https://api.github.com/repos/jankx/template-engine/zipball/6be7051a497ef9855d04455f19ab5a24a602dcb2",
+                "reference": "6be7051a497ef9855d04455f19ab5a24a602dcb2",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +362,7 @@
                 "issues": "https://github.com/jankx/template-engine/issues",
                 "source": "https://github.com/jankx/template-engine/tree/master"
             },
-            "time": "2022-12-30T07:04:47+00:00"
+            "time": "2023-02-12T10:22:04+00:00"
         },
         {
             "name": "jankx/wordpress-specs",
