@@ -78,7 +78,7 @@ final class Testimonials
 
     protected function integrationWithElementor()
     {
-        add_action('elementor/widgets/elementor/widgets/register', array($this, 'registerElementorWidgets'));
+        add_action('elementor/widgets/register', array($this, 'registerElementorWidgets'));
     }
 
     public function registerElementorWidgets($widget_manager)

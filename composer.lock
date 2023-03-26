@@ -53,12 +53,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/helpers.git",
-                "reference": "c09d54291f778eb5aaa84631417fefb48c20f133"
+                "reference": "e3ee27c510374ac131b53b41265eab51c2b69456"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/helpers/zipball/c09d54291f778eb5aaa84631417fefb48c20f133",
-                "reference": "c09d54291f778eb5aaa84631417fefb48c20f133",
+                "url": "https://api.github.com/repos/jankx/helpers/zipball/e3ee27c510374ac131b53b41265eab51c2b69456",
+                "reference": "e3ee27c510374ac131b53b41265eab51c2b69456",
                 "shasum": ""
             },
             "default-branch": true,
@@ -84,9 +84,9 @@
             "description": "The helpers for Jankx Framework",
             "support": {
                 "issues": "https://github.com/jankx/helpers/issues",
-                "source": "https://github.com/jankx/helpers/tree/1.0.0"
+                "source": "https://github.com/jankx/helpers/tree/1.0.1"
             },
-            "time": "2022-01-30T16:41:56+00:00"
+            "time": "2023-03-19T00:42:08+00:00"
         },
         {
             "name": "jankx/pagination",
