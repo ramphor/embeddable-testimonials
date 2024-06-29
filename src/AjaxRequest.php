@@ -1,4 +1,5 @@
 <?php
+
 namespace Ramphor\Testimonials;
 
 use Ramphor\Testimonials\Testimonials;
@@ -20,7 +21,8 @@ class AjaxRequest
         if (empty($requestPayload['post_id']) || is_null(get_post($requestPayload['post_id']))) {
             wp_send_json_error(__('The post ID is invalid', 'ramphor_testimonials'));
         }
-        if (empty($requestPayload['nonce']) ||
+        if (
+            empty($requestPayload['nonce']) ||
             !wp_verify_nonce($requestPayload['nonce'], sprintf('set_star_rating_for_%s', $requestPayload['post_id']))
         ) {
             wp_send_json_error(__('The request is not accept by security rules', 'ramphor_testimonials'));

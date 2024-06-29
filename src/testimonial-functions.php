@@ -1,4 +1,5 @@
 <?php
+
 use Ramphor\Testimonials\Testimonials;
 
 function ramphor_testimonial_get_rating($post = null)

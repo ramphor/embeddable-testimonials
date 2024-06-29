@@ -20,6 +20,9 @@
     "autoload": {
         "psr-4": {
             "Ramphor\\Testimonials\\": "src/"
-        }
+        },
+        "files": [
+            "./embeddable-testimonials.php"
+        ]
     }
 }

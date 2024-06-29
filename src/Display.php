@@ -1,4 +1,5 @@
 <?php
+
 namespace Ramphor\Testimonials;
 
 use Jankx\PostFormats\Abstracts\Format;

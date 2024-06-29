@@ -1,4 +1,5 @@
 <?php
+
 namespace Ramphor\Testimonials\Renderer;
 
 use Ramphor\Testimonials\Testimonials;

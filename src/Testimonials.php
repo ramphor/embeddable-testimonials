@@ -1,4 +1,5 @@
 <?php
+
 namespace Ramphor\Testimonials;
 
 use Embrati\Embrati;
@@ -90,7 +91,7 @@ final class Testimonials
     {
         $abspath = constant('ABSPATH');
         $testimonialDirPath = dirname(EMBEDDABLE_TESTIMONIALS_PLUGIN_FILE);
-        if (PHP_OS==='WINNT') {
+        if (PHP_OS === 'WINNT') {
             $abspath = str_replace('\\', '/', $abspath);
             $testimonialDirPath = str_replace('\\', '/', $testimonialDirPath);
         }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ramphor\Testimonials\Elementor;
 
 use Elementor\Widget_Base;
@@ -157,7 +158,7 @@ class TestimonialsWidget extends Widget_Base
                 'label' => __('Image Width', 'jankx'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
-                'step' =>5,
+                'step' => 5,
                 'default' => 400,
                 'condition' => array(
                     'thumbnail_size' => 'custom'
@@ -171,7 +172,7 @@ class TestimonialsWidget extends Widget_Base
                 'label' => __('Image Height', 'jankx'),
                 'type' => Controls_Manager::NUMBER,
                 'min' => 0,
-                'step' =>5,
+                'step' => 5,
                 'default' => 320,
                 'condition' => array(
                     'thumbnail_size' => 'custom',
@@ -278,7 +279,8 @@ class TestimonialsWidget extends Widget_Base
         $this->end_controls_section();
     }
 
-    public function getItemStyles() {
+    public function getItemStyles()
+    {
         return apply_filters('ramphor_testimonials_item_styles', array());
     }
 
@@ -327,7 +329,8 @@ class TestimonialsWidget extends Widget_Base
         echo (string) $renderer;
     }
 
-    public function get_responsive_setting($field_name, $default_value) {
+    public function get_responsive_setting($field_name, $default_value)
+    {
         if (is_null($this->settings)) {
             $this->settings = $this->get_settings_for_display();
         }

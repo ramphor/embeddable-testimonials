@@ -1,4 +1,5 @@
 <?php
+
 namespace Ramphor\Testimonials;
 
 use WP_Query;
