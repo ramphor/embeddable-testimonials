@@ -156,19 +156,55 @@ final class Testimonials
         return $this->engine;
     }
 
-    public function initBlocks() {
+    public function initBlocks()
+    {
         $this->blocks = apply_filters('ramphor/testimonials/blocks', [
             TestimonialsBlock::class,
         ]);
     }
 
-    public function registerBlocks() {
-        foreach($this->blocks as $blockCls) {
+    public function registerBlocks()
+    {
+        foreach ($this->blocks as $blockCls) {
             $block = new $blockCls();
             if ($block instanceof BlockInterface) {
-                $block->setBlockBaseDirectory();
+                $block->setBlockBaseDirectory(implode(DIRECTORY_SEPARATOR, [
+                    dirname(EMBEDDABLE_TESTIMONIALS_PLUGIN_FILE),
+                    'assets',
+                    'blocks'
+                ]));
                 $block->register();
+
+                // push instance to list
+                array_push($this->blockInstances, $block);
             }
         }
+
+        // Regiser scripts
+        add_action('admin_enqueue_scripts', [$this, 'registerScripts']);
+        add_action('admin_enqueue_scripts', [$this, 'enqueueScripts'], 20);
+    }
+
+    public function registerScripts()
+    {
+        wp_register_script(
+            'ramphor-testimonials-blocks',
+            $this->asset_url('blocks/embeddable-testimonials.js'),
+            ['react',  'react-dom', 'wp-block-editor', 'wp-blocks', 'wp-i18n'],
+            static::$version
+        );
+        wp_localize_script('ramphor-testimonials-blocks', 'ramphor_testimonials', array_combine(
+            array_map(function ($block) {
+                return $block->getType();
+            }, $this->blockInstances),
+            array_map(function ($block) {
+                return $block->getBlockJson();
+            }, $this->blockInstances)
+        ));
+    }
+
+    public function enqueueScripts()
+    {
+        wp_enqueue_script('ramphor-testimonials-blocks');
     }
 }

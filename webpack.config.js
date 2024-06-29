@@ -57,6 +57,12 @@ const config = {
             // Learn more about loaders from https://webpack.js.org/loaders/
         ],
     },
+    externals: {
+        '@wordpress/blocks': 'wp.blocks',
+        '@wordpress/block-editor': 'wp.blockEditor',
+        'react': 'React',
+        'react-dom': 'react-dom'
+    }
 };
 
 module.exports = () => {

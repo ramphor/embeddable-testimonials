@@ -12,11 +12,11 @@
     "minimum-stability": "dev",
     "require": {
         "ramphor/embrati": "^0.5",
-        "jankx/template": "*",
-        "jankx/wordpress-specs": "*",
-        "jankx/post-layout": "*",
+        "jankx/gutenberg-blocks": "*",
         "jankx/post-formats": "*",
-        "jankx/gutenberg-blocks": "dev-master"
+        "jankx/post-layout": "*",
+        "jankx/template": "*",
+        "jankx/wordpress-specs": "*"
     },
     "autoload": {
         "psr-4": {
