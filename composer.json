@@ -15,7 +15,8 @@
         "jankx/template": "*",
         "jankx/wordpress-specs": "*",
         "jankx/post-layout": "*",
-        "jankx/post-formats": "*"
+        "jankx/post-formats": "*",
+        "jankx/gutenberg-blocks": "dev-master"
     },
     "autoload": {
         "psr-4": {

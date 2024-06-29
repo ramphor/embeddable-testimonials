@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d10b84cf59bcc12ce5554ee7b5dedc8",
+    "content-hash": "75b6cc0673ea03aa33ee4b2f8aea9a34",
     "packages": [
         {
             "name": "jankx/asset",
@@ -46,6 +46,44 @@
                 "source": "https://github.com/jankx/asset/tree/master"
             },
             "time": "2023-01-09T14:03:42+00:00"
+        },
+        {
+            "name": "jankx/gutenberg-blocks",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jankx/gutenberg-blocks.git",
+                "reference": "142265eaf39274705f43d1f70cab017ec04111a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jankx/gutenberg-blocks/zipball/142265eaf39274705f43d1f70cab017ec04111a5",
+                "reference": "142265eaf39274705f43d1f70cab017ec04111a5",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jankx\\Blocks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Puleeno Nguyen",
+                    "email": "puleeno@gmail.com"
+                }
+            ],
+            "description": "The interface for Guntenberg blocks",
+            "support": {
+                "issues": "https://github.com/jankx/gutenberg-blocks/issues",
+                "source": "https://github.com/jankx/gutenberg-blocks/tree/master"
+            },
+            "time": "2024-06-29T03:27:07+00:00"
         },
         {
             "name": "jankx/helpers",

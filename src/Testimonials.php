@@ -3,9 +3,11 @@
 namespace Ramphor\Testimonials;
 
 use Embrati\Embrati;
+use Jankx\Blocks\BlockInterface;
 use Jankx\Template\Template;
 use Jankx\TemplateEngine\Engines\Plates;
 use Jankx\PostLayout\PostLayoutManager;
+use Ramphor\Testimonials\Blocks\TestimonialsBlock;
 use Ramphor\Testimonials\Elementor\TestimonialsWidget;
 
 final class Testimonials
@@ -23,6 +25,9 @@ final class Testimonials
     protected $engine;
 
     public static $version;
+
+    protected $blocks = [];
+    protected $blockInstances = [];
 
     public static function getInstance()
     {
@@ -60,6 +65,9 @@ final class Testimonials
 
         add_action('embrati_registered_scripts', array($this, 'registerTestimonialScripts'));
         add_filter('embrati_enqueue_script', array($this, 'changeEnqueueSCript'));
+
+        add_action('init', array($this, 'initBlocks'), 5);
+        add_action('init', array($this, 'registerBlocks'));
 
         add_action('init', array($this->ajax, 'init'));
         add_action('wp', array($this->display, 'display'));
@@ -146,5 +154,21 @@ final class Testimonials
     public function getTemplateEngine()
     {
         return $this->engine;
+    }
+
+    public function initBlocks() {
+        $this->blocks = apply_filters('ramphor/testimonials/blocks', [
+            TestimonialsBlock::class,
+        ]);
+    }
+
+    public function registerBlocks() {
+        foreach($this->blocks as $blockCls) {
+            $block = new $blockCls();
+            if ($block instanceof BlockInterface) {
+                $block->setBlockBaseDirectory();
+                $block->register();
+            }
+        }
     }
 }

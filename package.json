@@ -1,0 +1,43 @@
+{
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "main": "blocks/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramphor/embeddable-testimonials.git"
+  },
+  "keywords": [
+    "gutenberg",
+    "wordpress",
+    "tetimonials"
+  ],
+  "author": "Puleeno Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ramphor/embeddable-testimonials/issues"
+  },
+  "homepage": "https://github.com/ramphor/embeddable-testimonials#readme",
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@webpack-cli/generators": "^3.0.7",
+    "babel-loader": "^9.1.3",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.0",
+    "prettier": "^3.3.2",
+    "sass": "^1.77.6",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
