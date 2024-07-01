@@ -11,8 +11,6 @@ const blocks = window["ramphor_testimonials"] || [];
 Object.keys(blocks).forEach((blockType) => {
   let blockAttributes = blocks[blockType];
 
-  console.log(blockAttributes, blockType);
-
   const blockMethod = blockMethods[blockType] || null;
   if (typeof blockMethod === 'object') {
     blockAttributes.save = blockMethod.save || function(){};

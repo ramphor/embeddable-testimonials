@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75b6cc0673ea03aa33ee4b2f8aea9a34",
+    "content-hash": "c9e442b869a708ef7ad6589e402cff80",
     "packages": [
         {
             "name": "jankx/asset",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jankx/asset.git",
-                "reference": "8d32d480cec5ade1011f1518bc88ab4a3ab4784d"
+                "reference": "187fe15f88e93a8cfc7a7f12f040fe01a21b24ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jankx/asset/zipball/8d32d480cec5ade1011f1518bc88ab4a3ab4784d",
-                "reference": "8d32d480cec5ade1011f1518bc88ab4a3ab4784d",
+                "url": "https://api.github.com/repos/jankx/asset/zipball/187fe15f88e93a8cfc7a7f12f040fe01a21b24ae",
+                "reference": "187fe15f88e93a8cfc7a7f12f040fe01a21b24ae",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "issues": "https://github.com/jankx/asset/issues",
                 "source": "https://github.com/jankx/asset/tree/master"
             },
-            "time": "2023-01-09T14:03:42+00:00"
+            "time": "2024-06-30T13:34:10+00:00"
         },
         {
             "name": "jankx/gutenberg-blocks",
