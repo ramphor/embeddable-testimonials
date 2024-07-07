@@ -10,7 +10,7 @@ class TestimonialsBlock extends BlockAbstract
 {
     protected $type = 'ramphor/testimonials';
 
-    public function render()
+    public function render($data, $content)
     {
         $settings   = [];
         $query_args = array(
